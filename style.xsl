@@ -208,7 +208,7 @@
 				<table border="1" style="margin-bottom: 30px;  width: 60%;  margin-left: 2.5%;">
                     <tr class="table-header">
                         <!-- Заголовки таблицы на основе атрибутов REPODeal -->
-                        <th>Дата</th>
+                        <th>Дата операции</th>
                         <th>Торговая площадка</th>
                         <th>Валюта</th>
                         <th>Остаток</th>
