@@ -95,7 +95,9 @@
 								<xsl:with-param name="date" select="@Dateoftransaction"/> 
 							</xsl:call-template></td>
                             <td><xsl:value-of select="@Timeoftransaction"/></td>
-                            <td><xsl:value-of select="@DateOfFulfillmentOfObligations"/></td>
+			    <td><xsl:call-template name="format-date">
+				<xsl:with-param name="date" select="@DateOfFulfillmentOfObligations"/> 
+			    </xsl:call-template></td>
                             <td><xsl:value-of select="@Exchangetradenumber"/></td>
                             <td><xsl:value-of select="@CalculationCode"/></td>
                             <td><xsl:value-of select="@CalculationPeriod"/></td>
