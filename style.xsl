@@ -51,6 +51,7 @@
                     td {
                     padding: 8px;
                     text-align: left;
+
                     }
 
                     .container {
@@ -1158,7 +1159,7 @@
                                     <td style="text-align: center;">
                                         <xsl:value-of select="@PlaceDeals"/>
                                     </td>
-                                    <td style="text-align: right;">
+                                    <td style="mso-number-format:\@; text-align: right;">
                                         <xsl:choose>
                                             <xsl:when test="@ExchangeCommission = '0.00' or @Cost = 0">
                                                 <xsl:value-of select="''"/>
@@ -1168,7 +1169,7 @@
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </td>
-                                    <td style="text-align: right;">
+                                    <td style="mso-number-format:\@; text-align: right;">
                                         <xsl:choose>
                                             <xsl:when test="@BrokerCommission = '0.00' or @Cost = 0">
                                                 <xsl:value-of select="''"/>
