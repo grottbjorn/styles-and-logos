@@ -616,14 +616,14 @@
                                     </b>
                                 </td>
                                 <td colspan="1" style="mso-number-format:\@; text-align: right;">
-                                    <xsl:choose>
+                                    <b><xsl:choose>
                                         <xsl:when test="@BrokerCommission = '0.00'">
                                             <xsl:value-of select="''"/>
                                         </xsl:when>
                                         <xsl:otherwise>
-                                            <xsl:value-of select="@BrokerCommission"/>
+                                            <xsl:value-of select="format-number(sum($executedFortDeals/@BrokerCommission), '##0.00')"/>
                                         </xsl:otherwise>
-                                    </xsl:choose>
+                                    </xsl:choose></b>
 
                                 </td>
                                 <td colspan="1"></td>
@@ -774,7 +774,7 @@
                                                 <xsl:value-of select="''"/>
                                             </xsl:when>
                                             <xsl:otherwise>
-                                                <xsl:value-of select="@BrokerCommission"/>
+                                                <xsl:value-of select="format-number(sum($executedDeals/@BrokerCommission), '##0.00')"/>
                                             </xsl:otherwise>
                                         </xsl:choose>
                                     </b>
@@ -900,8 +900,6 @@
                                                         select="format-number(sum($pendingDeals/@BrokerCommission), '##0.00')"/>
                                             </xsl:otherwise>
                                         </xsl:choose>
-
-
                                     </b>
                                 </td>
                                 <td colspan="1"></td>
@@ -919,7 +917,16 @@
                                     </b>
                                 </td>
                                 <td colspan="1" style="text-align: right;">
-                                    <xsl:value-of select="''"/>
+                                    <b>
+                                        <xsl:choose>
+                                            <xsl:when test="@BrokerCommission = '0.00' or @BrokerCommission = 0">
+                                                <xsl:value-of select="''"/>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <xsl:value-of select="format-number(sum($executedDeals/@BrokerCommission), '##0.00')"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                    </b>
                                 </td>
                                 <td colspan="1"></td>
 
@@ -1197,14 +1204,14 @@
                                     </b>
                                 </td>
                                 <td colspan="1" style="text-align: right;">
-                                    <xsl:choose>
+                                   <b> <xsl:choose>
                                             <xsl:when test="@BrokerCommission = '0.00' or @Cost = 0">
                                                 <xsl:value-of select="''"/>
                                             </xsl:when>
                                             <xsl:otherwise>
-                                                <xsl:value-of select="@BrokerCommission"/>
+                                                <xsl:value-of select="format-number(sum($executedMetal/@BrokerCommission), '##0.00')"/>
                                             </xsl:otherwise>
-                                        </xsl:choose>
+                                   </xsl:choose></b>
 
                                 </td>
                                 <td colspan="1"></td>
@@ -1319,14 +1326,14 @@
                                     </b>
                                 </td>
                                 <td colspan="1" style="text-align: right;">
-                                    <xsl:choose>
+                                    <b><xsl:choose>
                                             <xsl:when test="@BrokerCommission = '0.00' or @Cost = 0">
                                                 <xsl:value-of select="''"/>
                                             </xsl:when>
                                             <xsl:otherwise>
-                                                <xsl:value-of select="@BrokerCommission"/>
+                                                <xsl:value-of select="format-number(sum($executedMetal/@BrokerCommission), '##0.00')"/>
                                             </xsl:otherwise>
-                                        </xsl:choose>
+                                    </xsl:choose></b>
 
                                 </td>
                                 <td colspan="1"></td>
@@ -1375,7 +1382,7 @@
                                         <xsl:value-of select="@NameOperation"/>
                                     </td>
                                     <td style="text-align: right;">
-                                        <xsl:value-of select="@Enrolled"/>
+                                        <xsl:value-of select="format-number(@Enrolled, '##0.')"/>
                                     </td>
                                     <td>
                                         <xsl:choose>
@@ -1399,7 +1406,7 @@
                                 <td colspan="1" style="text-align: right;">
                                     <b>
                                         <xsl:value-of
-                                                select="($executeSecurities/@Enrolled)"/>
+                                                select="format-number(sum($executeSecurities/@Enrolled), '##0.')"/>
                                     </b>
                                 </td>
                                 <td colspan="1"></td>
@@ -1935,7 +1942,7 @@
                         <table border="1" style="box-sizing: border-box;">
                             <tr class="table-header">
                                 <!-- Заголовки таблицы  -->
-                                <th rowspan="2" style="text-align: center;">Дата</th>
+                                <th rowspan="2" style="text-align: center;">Дата (Формирования)</th>
                                 <th rowspan="2" style="text-align: center;">Валюта</th>
                                 <th colspan="4" style="text-align: center;">Начало отчетного периода</th>
                                 <th rowspan="2" style="text-align: center;">Приход</th>
@@ -2065,9 +2072,9 @@
                                 </xsl:if>
                             </xsl:for-each>
 
-                            <tr>
+                            <tr class="marketplace-footer">
 
-                                <td colspan="16" class="text-style"
+                                <td colspan="16"
                                     style="border-left: 2px solid #DAA520; border-right: 2px solid #DAA520;">
                                     <b>В разрезе валют:</b>
                                 </td>
