@@ -144,12 +144,15 @@
 					</ss:Style>
             </ss:Styles>
 			
+			
 			<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 1.1. Ценные бумаги +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 			<xsl:variable name="executedSection" select="/REPORT_DOC/Sec/Securities[@Status='1']"/>
                 <xsl:variable name="executedSection2" select="/REPORT_DOC/Sec/Securities[@Status='2']"/>
                 <xsl:variable name="hasData" select="count($executedSection) + count($executedSection2) > 0"/>
                 <xsl:if test="$hasData">
 					<ss:Worksheet ss:Name="1.1. Ценные бумаги">
+					
+						
 					
 						<ss:Table ss:ExpandedColumnCount="19"
 								ss:ExpandedRowCount="{count(/REPORT_DOC/Sec/Securities[@Status='1']) + count(/REPORT_DOC/Sec/Securities[@Status='2']) + 20}"
@@ -367,6 +370,19 @@
 								</ss:Row>
 		
 						</ss:Table>
+						<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+							<x:PageSetup>
+								<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+								<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+								<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+							</x:PageSetup>
+							<x:FitToPage/>
+							<x:Print>
+								<x:ValidPrinterInfo/>
+								<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+								<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+							</x:Print>
+						</x:WorksheetOptions>
 					</ss:Worksheet>
 				</xsl:if>
 			<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ Ценные бумаги +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -538,6 +554,19 @@
 									</ss:Cell>
 								</ss:Row>
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ Срочные Сделки +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -825,6 +854,19 @@
 										</ss:Row>
 										
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ Сделки РЕПО ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -988,6 +1030,19 @@
 									</ss:Row>
 								</xsl:for-each>	
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 1.4. Иные операции(займ, мена и др): ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -1256,6 +1311,19 @@
 											
 											
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 1.6. Инструменты валютного рынка и рынка драгоценных металлов: +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -1379,6 +1447,19 @@
 								</ss:Row>
 								
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.1. Инофрмация об операциях с ЦБ: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -1532,6 +1613,19 @@
 								</xsl:for-each>
 							
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.2. Информация о состоянии портфеля ценных бумаг: +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -1657,6 +1751,19 @@
 								</xsl:for-each>
 							
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.3. Информация об открытых позициях по фьючерсным контрактам и опционам: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -1770,6 +1877,19 @@
 									</ss:Row>
 								</xsl:for-each>	
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.4. Информация по обязательствам валютного рынка и рынка драгоценных металлов: ++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -1867,6 +1987,19 @@
 								</xsl:for-each>
 							
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.5. Информация по обязательствам фондового рынка: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -1956,6 +2089,19 @@
 									</ss:Row>
 								</xsl:for-each>	
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.10. Оценка рублевой составляющей средств обеспечения: ++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -2068,6 +2214,19 @@
 								
 							
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 5.3. Расчет вариационной маржи: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -2190,6 +2349,19 @@
 								</xsl:for-each>
 							
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 5.4. Информация о движении денежных средств: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -2394,6 +2566,19 @@
 									</xsl:if>
 								</xsl:for-each>
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 5.5. Информация об остатках денежных средств: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -2484,6 +2669,19 @@
 									</ss:Cell>
 								</ss:Row>
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 6.1. Расшифровка комиссий: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
@@ -2572,6 +2770,20 @@
 									</ss:Row>
 								</xsl:for-each>	
 							</ss:Table>
+							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
+								<x:PageSetup>
+									<x:PaperSize x:PaperSize="9"/> <!-- Формат A4 -->
+									<x:Layout x:Orientation="Landscape"/> <!-- Альбомная ориентация -->
+									<x:PageMargins x:Bottom="0.2" x:Left="0.2" x:Right="0.2" x:Top="0.2"/> <!-- Поля страницы -->
+								</x:PageSetup>
+								<x:FitToPage/>
+								<x:Print>
+									<x:ValidPrinterInfo/>
+									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
+									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
+								</x:Print>
+							</x:WorksheetOptions>
+
 						</ss:Worksheet>
 					</xsl:if>
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 7.1. Расшифровка кодов ценных бумаг: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
