@@ -55,7 +55,7 @@
                     }
 
                     .container {
-                    width: 95%;
+                    width: 100%;
                     }
 
                     .table-container {
@@ -151,7 +151,7 @@
                     }
 
                     .text {
-                    width: 95%;
+                    width: 100%;
                     }
 
                     .date-column {
@@ -1093,7 +1093,7 @@
                                 <th rowspan="2" style="text-align: center;">Объем в валюте лота, лот</th>
                                 <th rowspan="2" style="text-align: center;">Сопряженная валюта</th>
                                 <th rowspan="2" style="text-align: center;">Объем в сопряженной валюте</th>
-                                <th rowspan="2" style="text-align: center;">Место заключение сделки</th>
+                                <th rowspan="2" style="text-align: center;">Место заключения сделки</th>
                                 <th rowspan="2" style="text-align: center;">Комиссия биржи</th>
                                 <th colspan="2" style="text-align: center;">Комиссия брокера</th>
                             </tr>
