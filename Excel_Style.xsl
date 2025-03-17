@@ -161,7 +161,6 @@
 							<!-- Column Width Settings -->
 							<xsl:call-template name="generate-columns">
 								<xsl:with-param name="count" select="19"/>
-								<xsl:with-param name="expanded-columns" select="'1, 2, 3, 4, 5, 9, 15, 16, 17'"/>
 								<xsl:with-param name="expanded-width" select="100"/>
 								<xsl:with-param name="default-width" select="60"/>	
 							</xsl:call-template>
@@ -379,6 +378,7 @@
 							<x:FitToPage/>
 							<x:Print>
 								<x:ValidPrinterInfo/>
+								<x:PaperSizeIndex>9</x:PaperSizeIndex>
 								<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 								<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 							</x:Print>
@@ -563,6 +563,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -863,6 +864,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -1039,6 +1041,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -1320,6 +1323,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -1456,6 +1460,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -1622,6 +1627,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -1760,6 +1766,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -1886,6 +1893,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -1996,6 +2004,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -2098,6 +2107,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -2223,6 +2233,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -2305,7 +2316,7 @@
 								<xsl:variable name="executeCashFlow" select="/REPORT_DOC/CashFlow/CashFlow"/>
 									
 								<xsl:for-each select="$executeCashFlow">
-									<ss:Row ss:Height="40" ss:AutoFitHeight="0">
+									<ss:Row ss:Height="60" ss:AutoFitHeight="0">
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
 											<xsl:call-template name="format-date">
 												<xsl:with-param name="date" select="@Date"/>
@@ -2358,6 +2369,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -2575,6 +2587,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -2678,6 +2691,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
@@ -2779,6 +2793,7 @@
 								<x:FitToPage/>
 								<x:Print>
 									<x:ValidPrinterInfo/>
+									<x:PaperSizeIndex>9</x:PaperSizeIndex>
 									<x:FitWidth>1</x:FitWidth> <!-- Уместить в ширину одной страницы -->
 									<x:FitHeight>0</x:FitHeight> <!-- Уместить в высоту всех страниц -->
 								</x:Print>
