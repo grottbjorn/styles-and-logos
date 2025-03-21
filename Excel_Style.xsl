@@ -155,7 +155,7 @@
 						
 					
 						<ss:Table ss:ExpandedColumnCount="19"
-								ss:ExpandedRowCount="{count(/REPORT_DOC/Sec/Securities[@Status='1']) + count(/REPORT_DOC/Sec/Securities[@Status='2']) + 20}"
+								ss:ExpandedRowCount="{count(/REPORT_DOC/Sec/Securities[@Status='1']) + count(/REPORT_DOC/Sec/Securities[@Status='2']) + 40}"
 								x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15">
 		
 							<!-- Column Width Settings -->
