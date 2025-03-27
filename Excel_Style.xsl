@@ -848,7 +848,7 @@
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Сумма сделки</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта платежа</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Сумма НКД</ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Место заключения сделки</ss:Data></ss:Cell>
+									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Портфель</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия биржы</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия брокера</ss:Data></ss:Cell>
 								</ss:Row>
