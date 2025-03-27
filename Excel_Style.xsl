@@ -7,22 +7,6 @@
 
     <xsl:output method="xml" encoding="windows-1251" indent="yes"/>
 	
-	<xsl:template name="format-date">
-        <xsl:param name="date"/>
-        <xsl:variable name="formattedDate">
-            <xsl:choose>
-                <xsl:when test="$date != ''">
-                    <!-- Преобразование даты в нужный формат -->
-                    <xsl:value-of select="substring($date, 9, 2)"/>.<xsl:value-of select="substring($date, 6, 2)"/>.<xsl:value-of select="substring($date, 1, 4)"/>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:text>N/A</xsl:text> <!-- Если дата пустая -->
-                </xsl:otherwise>
-            </xsl:choose>
-        </xsl:variable>
-        <xsl:value-of select="$formattedDate"/>
-    </xsl:template>
-	
     <xsl:template match="/">
         <ss:Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
                      xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -154,52 +138,53 @@
 					
 						
 					
-						<ss:Table ss:ExpandedColumnCount="19"
+						<ss:Table ss:ExpandedColumnCount="17"
 								ss:ExpandedRowCount="{count(/REPORT_DOC/Sec/Securities[@Status='1']) + count(/REPORT_DOC/Sec/Securities[@Status='2']) + 40}"
 								x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15">
 		
 							<!-- Column Width Settings -->
 							<xsl:call-template name="generate-columns">
-								<xsl:with-param name="count" select="19"/>
+								<xsl:with-param name="count" select="17"/>
 								<xsl:with-param name="expanded-width" select="100"/>
 								<xsl:with-param name="default-width" select="60"/>	
 							</xsl:call-template>
 							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-								<ss:Cell ss:StyleID="TitleRight2" ss:MergeAcross="18">
+								<ss:Cell ss:StyleID="TitleRight2" ss:MergeAcross="16">
 									<ss:Data ss:Type="String">Акционерное общество Финансовое ателье ГроттБьерн</ss:Data>
 								</ss:Cell>
 							</ss:Row>
 							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-								<ss:Cell ss:StyleID="TitleRight3" ss:MergeAcross="18">
+								<ss:Cell ss:StyleID="TitleRight3" ss:MergeAcross="16">
 									<ss:Data ss:Type="String">Лицензия: № 166-02672-100000 от 01.11.2000 г.</ss:Data>
 								</ss:Cell>
 							</ss:Row>
 							
 							<ss:Row ss:Height="40" ss:AutoFitHeight="0">
-								<ss:Cell ss:StyleID="TitleCenter" ss:MergeAcross="18">
+								<ss:Cell ss:StyleID="TitleCenter" ss:MergeAcross="16">
 									<ss:Data ss:Type="String">Отчёт брокера по операциям за период</ss:Data>
 								</ss:Cell>
 							</ss:Row>
 							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-								<ss:Cell ss:StyleID="TitleCenter2" ss:MergeAcross="18">
+								<ss:Cell ss:StyleID="TitleCenter2" ss:MergeAcross="16">
 									<ss:Data ss:Type="String">По сделкам и операциям за период: <xsl:value-of select="/REPORT_DOC/Report/@PeriodBegin"/>-<xsl:value-of select="/REPORT_DOC/Report/@PeriodEnd"/></ss:Data>
 								</ss:Cell>
 							</ss:Row>
 							<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-								<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="18">
-									<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-										<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
-									</ss:Data>
+								<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="16">
+								<ss:Data ss:Type="String">
+									Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
+								</ss:Data>
 								</ss:Cell>
+
 							</ss:Row>
 							<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-								<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="18">
+								<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="16">
 									<ss:Data ss:Type="String">Клиент: <xsl:value-of select="/REPORT_DOC/Report/@ClientName"/>
 									</ss:Data>
 								</ss:Cell>
 							</ss:Row>
 							<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-								<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="18">
+								<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="16">
 									<ss:Data ss:Type="String"><xsl:value-of select="/REPORT_DOC/Report/@AgreementBasis"/>
 									</ss:Data>
 								</ss:Cell>
@@ -207,7 +192,7 @@
 							
 							
 							<ss:Row ss:AutoFitHeight="0">
-								<ss:Cell ss:StyleID="Title" ss:MergeAcross="18">
+								<ss:Cell ss:StyleID="Title" ss:MergeAcross="16">
 									<ss:Data ss:Type="String">1.1. Ценные бумаги</ss:Data>
 								</ss:Cell>
 							</ss:Row>
@@ -226,37 +211,27 @@
 								<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта платежа</ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Сумма НКД в валюте сделки</ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Сумма НКД в валюте платежа</ss:Data></ss:Cell>
-								<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Место заключения сделки</ss:Data></ss:Cell>
+								<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Портфель</ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия биржи</ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия брокера</ss:Data></ss:Cell>
-								<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">в т.ч. НДС</ss:Data></ss:Cell>
-								<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Уровень маржи</ss:Data></ss:Cell>
 							</ss:Row>
 							<ss:Row ss:AutoFitHeight="0">
-								<ss:Cell ss:StyleID="Orange" ss:MergeAcross="18">
+								<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
 									<ss:Data ss:Type="String">Исполненные сделки предыдущих дней</ss:Data>
 								</ss:Cell>
 							</ss:Row>
 							<xsl:variable name="executedSec" select="/REPORT_DOC/Sec/Securities[@Status='1']"/>
 							<xsl:for-each select="$executedSec">
-								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-										<xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="@Dateoftransaction"/>
-										</xsl:call-template></ss:Data>
-									</ss:Cell>
+								<ss:Row ss:Height="40" ss:AutoFitHeight="0">
+									<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-										<xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="@ExecutionDate"/>
-										</xsl:call-template></ss:Data>
-									</ss:Cell>
+									<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@ExecutionDate"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Exchangetradenumber"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Transactiontype"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@AmountCurrencyTransaction, '##0.00')"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@CurrencyPrices"/></ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Quantity, '##0.00')"/></ss:Data></ss:Cell>
+									<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Quantity, '##0.')"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@AmountCurrencyPayment, '##0.00')"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@AmountCurrencyPayment, '##0.00')"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@PaymentCurrency"/></ss:Data></ss:Cell>
@@ -265,56 +240,46 @@
 									<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@PlaceDeals"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@ExchangeCommission, '##0.00')"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@BrokerCommission, '##0.00')"/></ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="@NDS"/></ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="@MarginLevel"/></ss:Data></ss:Cell>
 								</ss:Row>
 							</xsl:for-each>
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Grey" ss:MergeAcross="18">
+										<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 											<ss:Data ss:Type="String">Итого: Количество сделок = <xsl:value-of select="count($executedSec)"/></ss:Data>
 										</ss:Cell>
 									</ss:Row>
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Grey" ss:MergeAcross="18">
+										<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 											<ss:Data ss:Type="String">Общая сумма = <xsl:value-of select="format-number(sum($executedSec/@AmountCurrencyPayment), '##0.00')"/></ss:Data>
 										</ss:Cell>
 									</ss:Row>
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Grey" ss:MergeAcross="18">
+										<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 											<ss:Data ss:Type="String">Сумма НКД в валюте платежа = <xsl:value-of select="format-number(sum($executedSec/@AmountNCDCurrencyPayment), '##0.00')"/></ss:Data>
 										</ss:Cell>
 									</ss:Row>
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Grey" ss:MergeAcross="18">
+										<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 											<ss:Data ss:Type="String">Сумма комиссии биржи = <xsl:value-of select="format-number(sum($executedSec/@ExchangeCommission), '##0.00')"/></ss:Data>
 										</ss:Cell>
 									</ss:Row>
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Grey" ss:MergeAcross="18">
+										<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 											<ss:Data ss:Type="String">Сумма комиссии брокера = <xsl:value-of select="format-number(sum($executedSec/@BrokerCommission), '##0.00')"/></ss:Data>
 										</ss:Cell>
 									</ss:Row>
 							<xsl:variable name="execut" select="/REPORT_DOC/Sec/Securities[@Status='2']"/>
 								<xsl:if test="$execut">
 										<ss:Row ss:AutoFitHeight="0">
-											<ss:Cell ss:StyleID="Orange" ss:MergeAcross="18">
+											<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
 												<ss:Data ss:Type="String">Незавершенные сделки предыдущих дней</ss:Data>
 											</ss:Cell>
 										</ss:Row>
 									
 									<xsl:for-each select="$execut">
-									<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@Dateoftransaction"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
+									<ss:Row ss:Height="40" ss:AutoFitHeight="0">
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@ExecutionDate"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@ExecutionDate"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Exchangetradenumber"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Transactiontype"/></ss:Data></ss:Cell>
@@ -329,41 +294,39 @@
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@PlaceDeals"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@ExchangeCommission, '##0.00')"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@BrokerCommission, '##0.00')"/></ss:Data></ss:Cell>
-										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="@NDS"/></ss:Data></ss:Cell>
-										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="@MarginLevel"/></ss:Data></ss:Cell>
 									</ss:Row>
 									</xsl:for-each>
 									
 										<ss:Row ss:AutoFitHeight="0">
-											<ss:Cell ss:StyleID="Grey" ss:MergeAcross="18">
+											<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 												<ss:Data ss:Type="String">Итого: Количество сделок = <xsl:value-of select="count($execut)"/></ss:Data>
 											</ss:Cell>
 										</ss:Row>
 										
 										<ss:Row ss:AutoFitHeight="0">
-											<ss:Cell ss:StyleID="Grey" ss:MergeAcross="18">
+											<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 												<ss:Data ss:Type="String">Общая сумма = <xsl:value-of select="format-number(sum($execut/@AmountCurrencyPayment), '##0.00')"/></ss:Data>
 											</ss:Cell>
 										</ss:Row>
 										<ss:Row ss:AutoFitHeight="0">
-											<ss:Cell ss:StyleID="Grey" ss:MergeAcross="18">
+											<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 												<ss:Data ss:Type="String">Сумма НКД в валюте платежа = <xsl:value-of select="format-number(sum($execut/@AmountNCDCurrencyPayment), '##0.00')"/></ss:Data>
 											</ss:Cell>
 										</ss:Row>
 										<ss:Row ss:AutoFitHeight="0">
-											<ss:Cell ss:StyleID="Grey" ss:MergeAcross="18">
+											<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 												<ss:Data ss:Type="String">Сумма комиссии биржи = <xsl:value-of select="format-number(sum($execut/@ExchangeCommission), '##0.00')"/></ss:Data>
 											</ss:Cell>
 										</ss:Row>
 										<ss:Row ss:AutoFitHeight="0">
-											<ss:Cell ss:StyleID="Grey" ss:MergeAcross="18">
+											<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 												<ss:Data ss:Type="String">Сумма комиссии брокера = <xsl:value-of select="format-number(sum($execut/@BrokerCommission), '##0.00')"/></ss:Data>
 											</ss:Cell>
 										</ss:Row>
 								</xsl:if>
 									
 								<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Orange" ss:MergeAcross="18">
+										<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
 											<ss:Data ss:Type="String">Всего: Количество сделок = <xsl:value-of select="count($executedSec) + count($execut)"/></ss:Data>
 										</ss:Cell>
 								</ss:Row>
@@ -392,66 +355,65 @@
 					<xsl:if test="$FORTSDeal_Data">
 						<ss:Worksheet ss:Name="1.2. Срочные сделки">
 								<!-- Добавляем данные из FORTSDeals -->
-							<ss:Table ss:ExpandedColumnCount="14"
+							<ss:Table ss:ExpandedColumnCount="12"
 									ss:ExpandedRowCount="{count(/REPORT_DOC/FORTSDeals/FORTSDeal) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 							
 								<!-- Column Width Settings -->
 								<xsl:call-template name="generate-columns2">
-									<xsl:with-param name="count" select="14"/>
-									<xsl:with-param name="expanded-columns" select="'3, 6, 7'"/>
+									<xsl:with-param name="count" select="12"/>
 									<xsl:with-param name="expanded-width" select="150"/>
 									<xsl:with-param name="default-width" select="90"/>
 								</xsl:call-template>
 								
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight2" ss:MergeAcross="12">
+									<ss:Cell ss:StyleID="TitleRight2" ss:MergeAcross="11">
 										<ss:Data ss:Type="String">Акционерное общество Финансовое ателье ГроттБьерн</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight3" ss:MergeAcross="12">
+									<ss:Cell ss:StyleID="TitleRight3" ss:MergeAcross="11">
 										<ss:Data ss:Type="String">Лицензия: № 166-02672-100000 от 01.11.2000 г.</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								
 								<ss:Row ss:Height="40" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleCenter" ss:MergeAcross="12">
+									<ss:Cell ss:StyleID="TitleCenter" ss:MergeAcross="11">
 										<ss:Data ss:Type="String">Отчёт брокера по операциям за период</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleCenter2" ss:MergeAcross="12">
+									<ss:Cell ss:StyleID="TitleCenter2" ss:MergeAcross="11">
 										<ss:Data ss:Type="String">По сделкам и операциям за период: <xsl:value-of select="/REPORT_DOC/Report/@PeriodBegin"/>-<xsl:value-of select="/REPORT_DOC/Report/@PeriodEnd"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="12">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="11">
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="12">
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="11">
 										<ss:Data ss:Type="String">Клиент: <xsl:value-of select="/REPORT_DOC/Report/@ClientName"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="12">
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="11">
 										<ss:Data ss:Type="String"><xsl:value-of select="/REPORT_DOC/Report/@AgreementBasis"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 							
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Title" ss:MergeAcross="12">
+									<ss:Cell ss:StyleID="Title" ss:MergeAcross="11">
 										<ss:Data ss:Type="String">1.2. Срочные сделки:</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 							
-								<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+								<ss:Row ss:Height="120" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата совершения сделки</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Время совершения сделки</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Биржевой номер сделки</ss:Data></ss:Cell>
@@ -461,21 +423,16 @@
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Количество фьючерсных контрактов / опционов</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Цена исполнения по опциону</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Сумма в валюте платежа</ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Место заключения сделки</ss:Data></ss:Cell>
+									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Портфель</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия биржи</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия брокера</ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">в т.ч. НДС</ss:Data></ss:Cell>
 							
 								</ss:Row>
 								<xsl:variable name="executeFORTSDeal" select="/REPORT_DOC/FORTSDeals/FORTSDeal"/>
 									
 								<xsl:for-each select="$executeFORTSDeal">
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@Dateoftransaction"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Exchangetradenumber"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
@@ -523,33 +480,23 @@
 												</xsl:otherwise>
 											</xsl:choose>
 										</ss:Cell>
-										<ss:Cell ss:StyleID="RightAlign">
-											<xsl:choose>
-												<xsl:when test="@NDS != ''">
-													<ss:Data ss:Type="Number"><xsl:value-of select="@NDS"/></ss:Data>
-												</xsl:when>
-												<xsl:otherwise>
-													<ss:Data ss:Type="String"></ss:Data>
-												</xsl:otherwise>
-											</xsl:choose>
-										</ss:Cell>
 										
 									</ss:Row>
 								</xsl:for-each>
 							
 								<!-- New Header After Data -->
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="12">
+									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="11">
 										<ss:Data ss:Type="String">Всего: Количество сделок = <xsl:value-of select="count($executeFORTSDeal)"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="12">
+									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="11">
 										<ss:Data ss:Type="String">Сумма комиссии биржи = <xsl:value-of select="format-number(sum($executeFORTSDeal/@ExchangeCommission), '##0.00')"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="12">
+									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="11">
 										<ss:Data ss:Type="String">Сумма комиссии брокера = <xsl:value-of select="format-number(sum($executeFORTSDeal/@BrokerCommission), '##0.00')"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -578,60 +525,59 @@
 					<xsl:if test="$executed_REPODeal">
 						<ss:Worksheet ss:Name="1.3. Сделки РЕПО">
 								
-							<ss:Table ss:ExpandedColumnCount="19"
+							<ss:Table ss:ExpandedColumnCount="17"
 									ss:ExpandedRowCount="{count(/REPORT_DOC/REPODeals/REPODeal[@Status='1']) + count(/REPORT_DOC/REPODeals/REPODeal[@Status='2']) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 							
 								<xsl:call-template name="generate-columns3">
-									<xsl:with-param name="count" select="18"/>
-									<xsl:with-param name="expanded-columns" select="'6, 7, 11, 14, 15, 18'"/>
+									<xsl:with-param name="count" select="17"/>
 									<xsl:with-param name="expanded-width" select="60"/>
 									<xsl:with-param name="default-width" select="90"/>
 								</xsl:call-template>
 								
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight2" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="TitleRight2" ss:MergeAcross="16">
 										<ss:Data ss:Type="String">Акционерное общество Финансовое ателье ГроттБьерн</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight3" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="TitleRight3" ss:MergeAcross="16">
 										<ss:Data ss:Type="String">Лицензия: № 166-02672-100000 от 01.11.2000 г.</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								
 								<ss:Row ss:Height="40" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleCenter" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="TitleCenter" ss:MergeAcross="16">
 										<ss:Data ss:Type="String">Отчёт брокера по операциям за период</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleCenter2" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="TitleCenter2" ss:MergeAcross="16">
 										<ss:Data ss:Type="String">По сделкам и операциям за период: <xsl:value-of select="/REPORT_DOC/Report/@PeriodBegin"/>-<xsl:value-of select="/REPORT_DOC/Report/@PeriodEnd"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="17">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="16">
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="16">
 										<ss:Data ss:Type="String">Клиент: <xsl:value-of select="/REPORT_DOC/Report/@ClientName"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="16">
 										<ss:Data ss:Type="String"><xsl:value-of select="/REPORT_DOC/Report/@AgreementBasis"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 							
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Title" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="Title" ss:MergeAcross="16">
 										<ss:Data ss:Type="String">1.3. Сделки РЕПО:</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -654,12 +600,11 @@
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Место заключения сделки</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия биржи</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия брокера</ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">в т.ч. НДС</ss:Data></ss:Cell>
 							
 								</ss:Row>
 								
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
 										<ss:Data ss:Type="String">Исполненные сделки:</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -668,20 +613,9 @@
 									
 								<xsl:for-each select="$executeREPODeal">
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@Dateoftransaction"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
-										
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
-										
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@DateOfFulfillmentOfObligations"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
-										
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@DateOfFulfillmentOfObligations"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Exchangetradenumber"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@CalculationCode"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="@CalculationPeriod"/></ss:Data></ss:Cell>
@@ -724,59 +658,37 @@
 												</xsl:otherwise>
 											</xsl:choose>
 										</ss:Cell>
-										<ss:Cell ss:StyleID="RightAlign">
-											<xsl:choose>
-												<xsl:when test="@NDS != ''">
-													<ss:Data ss:Type="Number"><xsl:value-of select="@NDS"/></ss:Data>
-												</xsl:when>
-												<xsl:otherwise>
-													<ss:Data ss:Type="String"></ss:Data>
-												</xsl:otherwise>
-											</xsl:choose>
-										</ss:Cell>
-										
 									</ss:Row>
 								</xsl:for-each>
 								
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
 										<ss:Data ss:Type="String">Итого: Количество сделок = <xsl:value-of select="count($executeREPODeal)"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 										<ss:Data ss:Type="String">Сумма комиссии биржи = <xsl:value-of select="format-number(sum($executeREPODeal/@ExchangeCommission), '##0.00')"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="17">
+									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 										<ss:Data ss:Type="String">Сумма комиссии брокера = <xsl:value-of select="format-number(sum($executeREPODeal/@BrokerCommission), '##0.00')"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<xsl:variable name="executeREPODeal2" select="/REPORT_DOC/REPODeals/REPODeal[@Status='2']"/>
 									<xsl:if test="$executeREPODeal2">
 											<ss:Row ss:AutoFitHeight="0">
-												<ss:Cell ss:StyleID="Orange" ss:MergeAcross="17">
+												<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
 													<ss:Data ss:Type="String">Незавершенные сделки к исполнению:</ss:Data>
 												</ss:Cell>
 											</ss:Row>
 											
 											<xsl:for-each select="$executeREPODeal2">
 												<ss:Row ss:AutoFitHeight="0">
-													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-														<xsl:call-template name="format-date">
-															<xsl:with-param name="date" select="@Dateoftransaction"/>
-														</xsl:call-template></ss:Data>
-													</ss:Cell>
-													
+													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
-													
-													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-														<xsl:call-template name="format-date">
-															<xsl:with-param name="date" select="@DateOfFulfillmentOfObligations"/>
-														</xsl:call-template></ss:Data>
-													</ss:Cell>
-													
+													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@DateOfFulfillmentOfObligations"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Exchangetradenumber"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@CalculationCode"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="@CalculationPeriod"/></ss:Data></ss:Cell>
@@ -819,37 +731,26 @@
 															</xsl:otherwise>
 														</xsl:choose>
 													</ss:Cell>
-													<ss:Cell ss:StyleID="RightAlign">
-														<xsl:choose>
-															<xsl:when test="@NDS != ''">
-																<ss:Data ss:Type="Number"><xsl:value-of select="@NDS"/></ss:Data>
-															</xsl:when>
-															<xsl:otherwise>
-																<ss:Data ss:Type="String"></ss:Data>
-															</xsl:otherwise>
-														</xsl:choose>
-													</ss:Cell>
-													
 												</ss:Row>
 											</xsl:for-each>
 											<ss:Row ss:AutoFitHeight="0">
-												<ss:Cell ss:StyleID="Orange" ss:MergeAcross="17">
+												<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
 													<ss:Data ss:Type="String">Итого: Количество сделок = <xsl:value-of select="count($executeREPODeal2)"/></ss:Data>
 												</ss:Cell>
 											</ss:Row>
 											<ss:Row ss:AutoFitHeight="0">
-												<ss:Cell ss:StyleID="Grey" ss:MergeAcross="17">
+												<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 													<ss:Data ss:Type="String">Сумма комиссии биржи = <xsl:value-of select="format-number(sum($executeREPODeal2/@ExchangeCommission), '##0.00')"/></ss:Data>
 												</ss:Cell>
 											</ss:Row>
 											<ss:Row ss:AutoFitHeight="0">
-												<ss:Cell ss:StyleID="Grey" ss:MergeAcross="17">
+												<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
 													<ss:Data ss:Type="String">Сумма комиссии брокера = <xsl:value-of select="format-number(sum($executeREPODeal2/@BrokerCommission), '##0.00')"/></ss:Data>
 												</ss:Cell>
 											</ss:Row>
 										</xsl:if>
 										<ss:Row ss:AutoFitHeight="0">
-												<ss:Cell ss:StyleID="Orange" ss:MergeAcross="17">
+												<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
 													<ss:Data ss:Type="String">Всего: количество сделок = <xsl:value-of select="count($executeREPODeal) + count($executeREPODeal2)"/></ss:Data>
 												</ss:Cell>
 										</ss:Row>
@@ -878,60 +779,60 @@
                 <xsl:variable name="executedOther_Operation_Data" select="count($executedOther_Operation) > 0"/>
 					<xsl:if test="$executedOther_Operation_Data">
 						<ss:Worksheet ss:Name="1.4. Иные операции">
-							<ss:Table ss:ExpandedColumnCount="14"
+							<ss:Table ss:ExpandedColumnCount="13"
 									ss:ExpandedRowCount="{count(/REPORT_DOC/OtherOperations/OtherOperation) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 									
 								<xsl:call-template name="generate-columns_1_4">
-									<xsl:with-param name="count" select="14"/>
+									<xsl:with-param name="count" select="13"/>
 									<xsl:with-param name="expanded-width" select="60"/>
 									<xsl:with-param name="expanded-width2" select="150"/>
 									<xsl:with-param name="default-width" select="90"/>
 								</xsl:call-template>
 								
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight2" ss:MergeAcross="13">
+									<ss:Cell ss:StyleID="TitleRight2" ss:MergeAcross="12">
 										<ss:Data ss:Type="String">Акционерное общество Финансовое ателье ГроттБьерн</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight3" ss:MergeAcross="13">
+									<ss:Cell ss:StyleID="TitleRight3" ss:MergeAcross="12">
 										<ss:Data ss:Type="String">Лицензия: № 166-02672-100000 от 01.11.2000 г.</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								
 								<ss:Row ss:Height="40" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleCenter" ss:MergeAcross="13">
+									<ss:Cell ss:StyleID="TitleCenter" ss:MergeAcross="12">
 										<ss:Data ss:Type="String">Отчёт брокера по операциям за период</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleCenter2" ss:MergeAcross="13">
+									<ss:Cell ss:StyleID="TitleCenter2" ss:MergeAcross="12">
 										<ss:Data ss:Type="String">По сделкам и операциям за период: <xsl:value-of select="/REPORT_DOC/Report/@PeriodBegin"/>-<xsl:value-of select="/REPORT_DOC/Report/@PeriodEnd"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="13">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="12">
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="13">
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="12">
 										<ss:Data ss:Type="String">Клиент: <xsl:value-of select="/REPORT_DOC/Report/@ClientName"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="13">
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="12">
 										<ss:Data ss:Type="String"><xsl:value-of select="/REPORT_DOC/Report/@AgreementBasis"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 							
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Title" ss:MergeAcross="13">
+									<ss:Cell ss:StyleID="Title" ss:MergeAcross="12">
 										<ss:Data ss:Type="String">1.4. Иные операции(займ, мена и др):</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -950,17 +851,12 @@
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Место заключения сделки</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия биржы</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия брокера</ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">в т.ч. НДС</ss:Data></ss:Cell>
 								</ss:Row>
 								
 								<xsl:variable name="executeOtherOperation" select="/REPORT_DOC/OtherOperations/OtherOperation"/>
 								<xsl:for-each select="$executeOtherOperation">
 									<ss:Row ss:Height="40" ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@Dateoftransaction"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Transactiontype"/></ss:Data></ss:Cell>
@@ -1018,16 +914,6 @@
 												</xsl:otherwise>
 											</xsl:choose>
 										</ss:Cell>
-										<ss:Cell ss:StyleID="RightAlign">
-											<xsl:choose>
-												<xsl:when test="@NDS != '0.00'">
-													<ss:Data ss:Type="String"><xsl:value-of select="format-number(@NDS, '##0.00')"/></ss:Data>
-												</xsl:when>
-												<xsl:otherwise>
-													<ss:Data ss:Type="String"></ss:Data>
-												</xsl:otherwise>
-											</xsl:choose>
-										</ss:Cell>
 										
 									</ss:Row>
 								</xsl:for-each>	
@@ -1057,61 +943,60 @@
 					<xsl:if test="$executedOther_Metal_Markets_Data">
 						<ss:Worksheet ss:Name="1.6. Валютный и Драг. металлы">
 								<!-- Добавляем данные из FORTSDeals -->
-							<ss:Table ss:ExpandedColumnCount="19"
+							<ss:Table ss:ExpandedColumnCount="16"
 									ss:ExpandedRowCount="{count(/REPORT_DOC/AssetsForeignMetalMarkets/AssetForeignMetalMarkets[@Status='1']) + count(/REPORT_DOC/AssetsForeignMetalMarkets/AssetForeignMetalMarkets[@Status='3']) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 									
 								<xsl:call-template name="generate-columns4">
-									<xsl:with-param name="count" select="18"/>
-									<xsl:with-param name="expanded-columns" select="'7, 8, 9, 11, 18'"/>
+									<xsl:with-param name="count" select="16"/>
 									<xsl:with-param name="expanded-width" select="60"/>
 									<xsl:with-param name="expanded-width2" select="100"/>
 									<xsl:with-param name="default-width" select="90"/>
 								</xsl:call-template>
 								
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight2" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="TitleRight2" ss:MergeAcross="15">
 										<ss:Data ss:Type="String">Акционерное общество Финансовое ателье ГроттБьерн</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight3" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="TitleRight3" ss:MergeAcross="15">
 										<ss:Data ss:Type="String">Лицензия: № 166-02672-100000 от 01.11.2000 г.</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								
 								<ss:Row ss:Height="40" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleCenter" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="TitleCenter" ss:MergeAcross="15">
 										<ss:Data ss:Type="String">Отчёт брокера по операциям за период</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleCenter2" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="TitleCenter2" ss:MergeAcross="15">
 										<ss:Data ss:Type="String">По сделкам и операциям за период: <xsl:value-of select="/REPORT_DOC/Report/@PeriodBegin"/>-<xsl:value-of select="/REPORT_DOC/Report/@PeriodEnd"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="16">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="15">
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="15">
 										<ss:Data ss:Type="String">Клиент: <xsl:value-of select="/REPORT_DOC/Report/@ClientName"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="15">
 										<ss:Data ss:Type="String"><xsl:value-of select="/REPORT_DOC/Report/@AgreementBasis"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
 							
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Title" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="Title" ss:MergeAcross="15">
 										<ss:Data ss:Type="String">1.6. Инструменты валютного рынка и рынка драгоценных металлов:</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -1130,15 +1015,14 @@
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Объем в валюте лота, лот</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Сопряженная валюта</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Объем в сопряженной валюте</ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Место заключения сделки</ss:Data></ss:Cell>
+									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Портфель</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия биржи</ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Комиссия брокера</ss:Data></ss:Cell>
-									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">в т.ч. НДС</ss:Data></ss:Cell>
 							
 								</ss:Row>
 								
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="15">
 										<ss:Data ss:Type="String">Исполненные сделки:</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -1147,20 +1031,9 @@
 									
 								<xsl:for-each select="$executeMetalMarkets">
 									<ss:Row ss:Height="60" ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@Dateoftransaction"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
-										
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
-										
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@DateOfFulfillmentOfObligations"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
-										
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@DateOfFulfillmentOfObligations"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Exchangetradenumber"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@TypeDeals"/></ss:Data></ss:Cell>
@@ -1192,33 +1065,22 @@
 												</xsl:otherwise>
 											</xsl:choose>
 										</ss:Cell>
-										<ss:Cell ss:StyleID="RightAlign">
-											<xsl:choose>
-												<xsl:when test="@NDS != '0'">
-													<ss:Data ss:Type="Number"><xsl:value-of select="@NDS"/></ss:Data>
-												</xsl:when>
-												<xsl:otherwise>
-													<ss:Data ss:Type="String"></ss:Data>
-												</xsl:otherwise>
-											</xsl:choose>
-										</ss:Cell>
-										
 									</ss:Row>
 								</xsl:for-each>
 							
 								<!-- New Header After Data -->
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="15">
 										<ss:Data ss:Type="String">Итого: Количество сделок = <xsl:value-of select="count($executeMetalMarkets)"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="15">
 										<ss:Data ss:Type="String">Сумма комиссии биржи = <xsl:value-of select="format-number(sum($executeMetalMarkets/@ExchangeCommission), '##0.00')"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
 								<ss:Row ss:AutoFitHeight="0">
-									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
+									<ss:Cell ss:StyleID="Grey" ss:MergeAcross="15">
 										<ss:Data ss:Type="String">Сумма комиссии брокера = <xsl:value-of select="format-number(sum($executeMetalMarkets/@BrokerCommission), '##0.00')"/></ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -1226,27 +1088,16 @@
 										<xsl:if test="$executeMetalMarkets2">
 									
 											<ss:Row ss:AutoFitHeight="0">
-															<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
+															<ss:Cell ss:StyleID="Orange" ss:MergeAcross="15">
 																<ss:Data ss:Type="String">Незавершенные сделки к исполнению:</ss:Data>
 															</ss:Cell>
 												
 											</ss:Row>
 											<xsl:for-each select="$executeMetalMarkets2">
 												<ss:Row ss:Height="60" ss:AutoFitHeight="0">
-													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-														<xsl:call-template name="format-date">
-															<xsl:with-param name="date" select="@Dateoftransaction"/>
-														</xsl:call-template></ss:Data>
-													</ss:Cell>
-													
+													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
-													
-													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-														<xsl:call-template name="format-date">
-															<xsl:with-param name="date" select="@DateOfFulfillmentOfObligations"/>
-														</xsl:call-template></ss:Data>
-													</ss:Cell>
-													
+													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@DateOfFulfillmentOfObligations"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Exchangetradenumber"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@TypeDeals"/></ss:Data></ss:Cell>
@@ -1278,41 +1129,29 @@
 															</xsl:otherwise>
 														</xsl:choose>
 													</ss:Cell>
-													<ss:Cell ss:StyleID="RightAlign">
-														<xsl:choose>
-															<xsl:when test="@NDS != '0'">
-																<ss:Data ss:Type="Number"><xsl:value-of select="@NDS"/></ss:Data>
-															</xsl:when>
-															<xsl:otherwise>
-																<ss:Data ss:Type="String"></ss:Data>
-															</xsl:otherwise>
-														</xsl:choose>
-													</ss:Cell>
 												</ss:Row>
 											</xsl:for-each>
 											<ss:Row ss:AutoFitHeight="0">
-											<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
+											<ss:Cell ss:StyleID="Orange" ss:MergeAcross="15">
 												<ss:Data ss:Type="String">Итого: Количество сделок = <xsl:value-of select="count($executeMetalMarkets2)"/></ss:Data>
 											</ss:Cell>
 											</ss:Row>
 											<ss:Row ss:AutoFitHeight="0">
-												<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
+												<ss:Cell ss:StyleID="Grey" ss:MergeAcross="15">
 													<ss:Data ss:Type="String">Сумма комиссии биржи = <xsl:value-of select="format-number(sum($executeMetalMarkets2/@ExchangeCommission), '##0.00')"/></ss:Data>
 												</ss:Cell>
 											</ss:Row>
 											<ss:Row ss:AutoFitHeight="0">
-												<ss:Cell ss:StyleID="Grey" ss:MergeAcross="16">
+												<ss:Cell ss:StyleID="Grey" ss:MergeAcross="15">
 													<ss:Data ss:Type="String">Сумма комиссии брокера = <xsl:value-of select="format-number(sum($executeMetalMarkets2/@BrokerCommission), '##0.00')"/></ss:Data>
 												</ss:Cell>
 											</ss:Row>
 										</xsl:if>
 										<ss:Row ss:AutoFitHeight="0">
-												<ss:Cell ss:StyleID="Orange" ss:MergeAcross="16">
+												<ss:Cell ss:StyleID="Orange" ss:MergeAcross="15">
 													<ss:Data ss:Type="String">Всего: количество сделок = <xsl:value-of select="count($executeMetalMarkets) + count($executeMetalMarkets2)"/></ss:Data>
 												</ss:Cell>
 										</ss:Row>
-											
-											
 							</ss:Table>
 							<x:WorksheetOptions xmlns:x="urn:schemas-microsoft-com:office:excel">
 								<x:PageSetup>
@@ -1333,19 +1172,18 @@
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 1.6. Инструменты валютного рынка и рынка драгоценных металлов: +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 			
 			<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 3.1. Инофрмация об операциях с ЦБ: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-			<xsl:variable name="executedTransactions_Securities" select="/REPORT_DOC/TransactionsSecurities/TransactionsSecurities"/>
+			<xsl:variable name="executedTransactions_Securities" select="/REPORT_DOC/TransactionsSecurities/TransactionSecurities"/>
 			    <xsl:variable name="executedTransactions_Securities_Data" select="count($executedTransactions_Securities) > 0"/>
 					<xsl:if test="$executedTransactions_Securities_Data">
 			
 						<ss:Worksheet ss:Name="3.1. Операции с ЦБ">
 								
-							<ss:Table ss:ExpandedColumnCount="9"
-									ss:ExpandedRowCount="{count(/REPORT_DOC/TransactionsSecurities/TransactionsSecurities) + 20}"
+							<ss:Table ss:ExpandedColumnCount="6"
+									ss:ExpandedRowCount="{count(/REPORT_DOC/TransactionsSecurities/TransactionSecurities) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 									
 								<xsl:call-template name="generate-columns5">
-									<xsl:with-param name="count" select="9"/>
-									<xsl:with-param name="expanded-columns" select="'6'"/>
+									<xsl:with-param name="count" select="6"/>
 									<xsl:with-param name="expanded-width" select="100"/>
 									<xsl:with-param name="expanded-width2" select="100"/>
 									<xsl:with-param name="default-width" select="180"/>
@@ -1374,8 +1212,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="5">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -1409,16 +1247,11 @@
 								</ss:Row>
 								
 								
-								<xsl:variable name="executeTransactionsSecurities" select="/REPORT_DOC/TransactionsSecurities/TransactionsSecurities"/>
+								<xsl:variable name="executeTransactionsSecurities" select="/REPORT_DOC/TransactionsSecurities/TransactionSecurities"/>
 									
 								<xsl:for-each select="$executeTransactionsSecurities">
 									<ss:Row ss:Height="60" ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@Dateoftransaction"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
-										
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@PlaceRegistration"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@NameOperation"/></ss:Data></ss:Cell>
@@ -1470,18 +1303,17 @@
 			<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.1. Инофрмация об операциях с ЦБ: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 			
 			<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 3.2. Информация о состоянии портфеля ценных бумаг: +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-			<xsl:variable name="executed_State_Securities_Portfolio" select="/REPORT_DOC/StateSecuritiesPortfolio/StateSecuritiesPortfolio"/>
+			<xsl:variable name="executed_State_Securities_Portfolio" select="/REPORT_DOC/StatesSecuritiesPortfolio/StateSecuritiesPortfolio"/>
 			    <xsl:variable name="executed_State_Securities_Portfolio_Data" select="count($executed_State_Securities_Portfolio) > 0"/>
 					<xsl:if test="$executed_State_Securities_Portfolio_Data">
 						<ss:Worksheet ss:Name="3.2. Состояние портфеля ЦБ">
 								<!-- Добавляем данные из FORTSDeals -->
-							<ss:Table ss:ExpandedColumnCount="14"
-									ss:ExpandedRowCount="{count(/REPORT_DOC/StateSecuritiesPortfolio/StateSecuritiesPortfolio) + 20}"
+							<ss:Table ss:ExpandedColumnCount="13"
+									ss:ExpandedRowCount="{count(/REPORT_DOC/StatesSecuritiesPortfolio/StateSecuritiesPortfolio) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 							
 								<xsl:call-template name="generate-columns6">
-									<xsl:with-param name="count" select="14"/>
-									<xsl:with-param name="expanded-columns" select="'1, 5, 6'"/>
+									<xsl:with-param name="count" select="13"/>
 									<xsl:with-param name="expanded-width" select="100"/>
 									<xsl:with-param name="expanded-width2" select="100"/>
 									<xsl:with-param name="default-width" select="100"/>
@@ -1510,8 +1342,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="15" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="12">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -1552,7 +1384,7 @@
 								</ss:Row>
 								
 								
-								<xsl:variable name="executeSecuritiesPortfolio" select="/REPORT_DOC/StateSecuritiesPortfolio/StateSecuritiesPortfolio"/>
+								<xsl:variable name="executeSecuritiesPortfolio" select="/REPORT_DOC/StatesSecuritiesPortfolio/StateSecuritiesPortfolio"/>
 									
 								<xsl:for-each select="$executeSecuritiesPortfolio">
 									<ss:Row ss:Height="75" ss:AutoFitHeight="0">
@@ -1637,19 +1469,18 @@
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.2. Информация о состоянии портфеля ценных бумаг: +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 			
 			<!--++++++++++++++++++++++++++++++++++ 3.3. Информация об открытых позициях по фьючерсным контрактам и опционам: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-			<xsl:variable name="executed_Futures_Options" select="/REPORT_DOC/OpenPositionsFuturesOptions/OpenPositionsFuturesOptions"/>
+			<xsl:variable name="executed_Futures_Options" select="/REPORT_DOC/OpenPositionsFuturesOptions/OpenPositionFuturesOptions"/>
 			    <xsl:variable name="executed_Futures_Options_Data" select="count($executed_Futures_Options) > 0"/>
 					<xsl:if test="$executed_Futures_Options_Data">
 			
 						<ss:Worksheet ss:Name="3.3. Контракты и опционы">
 								<!-- Добавляем данные из FORTSDeals -->
-							<ss:Table ss:ExpandedColumnCount="9"
-									ss:ExpandedRowCount="{count(/REPORT_DOC/OpenPositionsFuturesOptions/OpenPositionsFuturesOptions) + 20}"
+							<ss:Table ss:ExpandedColumnCount="7"
+									ss:ExpandedRowCount="{count(/REPORT_DOC/OpenPositionsFuturesOptions/OpenPositionFuturesOptions) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 							
 								<xsl:call-template name="generate-columns7">
-									<xsl:with-param name="count" select="9"/>
-									<xsl:with-param name="expanded-columns" select="'1, 5, 6'"/>
+									<xsl:with-param name="count" select="7"/>
 									<xsl:with-param name="expanded-width" select="100"/>
 									<xsl:with-param name="expanded-width2" select="100"/>
 									<xsl:with-param name="default-width" select="160"/>
@@ -1678,8 +1509,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="6">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -1714,7 +1545,7 @@
 								</ss:Row>
 								
 								
-								<xsl:variable name="executeFuturesOptions" select="/REPORT_DOC/OpenPositionsFuturesOptions/OpenPositionsFuturesOptions"/>
+								<xsl:variable name="executeFuturesOptions" select="/REPORT_DOC/OpenPositionsFuturesOptions/OpenPositionFuturesOptions"/>
 									
 								<xsl:for-each select="$executeFuturesOptions">
 									<ss:Row ss:AutoFitHeight="0">
@@ -1747,7 +1578,7 @@
 														<ss:Data ss:Type="String"><xsl:value-of select="format-number(@Margin, '##0.')"/></ss:Data>
 													</xsl:when>
 													<xsl:otherwise>
-														<ss:Data ss:Type="String"></ss:Data>
+														<ss:Data ss:Type="String">0.00</ss:Data>
 													</xsl:otherwise>
 											</xsl:choose>
 										</ss:Cell>
@@ -1776,17 +1607,16 @@
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.3. Информация об открытых позициях по фьючерсным контрактам и опционам: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 			
 			<!--+++++++++++++++++++++++++++++++++++++++++++ 3.4. Информация по обязательствам валютного рынка и рынка драгоценных металлов: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-			<xsl:variable name="executed_Metals_Market" select="/REPORT_DOC/LiabilitiesForeignMetalsMarket/LiabilitiesForeignMetalsMarket"/>
+			<xsl:variable name="executed_Metals_Market" select="/REPORT_DOC/LiabilitiesForeignMetalsMarket/LiabilitiesForeignMetalMarket"/>
 			    <xsl:variable name="executed_Metals_Market_Data" select="count($executed_Metals_Market) > 0"/>
 					<xsl:if test="$executed_Metals_Market_Data">
 						<ss:Worksheet ss:Name="3.4. Обязательства ВР и ДМ">
 							<ss:Table ss:ExpandedColumnCount="7"
-									ss:ExpandedRowCount="{count(/REPORT_DOC/LiabilitiesForeignMetalsMarket/LiabilitiesForeignMetalsMarket) + 20}"
+									ss:ExpandedRowCount="{count(/REPORT_DOC/LiabilitiesForeignMetalsMarket/LiabilitiesForeignMetalMarket) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 									
 								<xsl:call-template name="generate-columns_3_4">
 									<xsl:with-param name="count" select="7"/>
-									<xsl:with-param name="expanded-columns" select="'1'"/>
 									<xsl:with-param name="expanded-width" select="100"/>
 									<xsl:with-param name="expanded-width2" select="100"/>
 									<xsl:with-param name="default-width" select="140"/>
@@ -1815,8 +1645,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="6">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -1849,14 +1679,10 @@
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Итого по курсу</ss:Data></ss:Cell>
 								</ss:Row>
 								
-								<xsl:variable name="executeForeignMetalsMarket" select="/REPORT_DOC/LiabilitiesForeignMetalsMarket/LiabilitiesForeignMetalsMarket"/>
+								<xsl:variable name="executeForeignMetalsMarket" select="/REPORT_DOC/LiabilitiesForeignMetalsMarket/LiabilitiesForeignMetalMarket"/>
 								<xsl:for-each select="$executeForeignMetalsMarket">
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@ExecutionDate"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@ExecutionDate"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign">
 											<xsl:choose>
@@ -1907,13 +1733,12 @@
 			    <xsl:variable name="executed_Market_Obligation_Data" select="count($executed_Market_Obligation) > 0"/>
 					<xsl:if test="$executed_Market_Obligation_Data">
 						<ss:Worksheet ss:Name="3.5. Фондовый рынок">
-							<ss:Table ss:ExpandedColumnCount="8"
+							<ss:Table ss:ExpandedColumnCount="6"
 									ss:ExpandedRowCount="{count(/REPORT_DOC/StockMarketObligations/StockMarketObligation) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 									
 								<xsl:call-template name="generate-columns8">
-									<xsl:with-param name="count" select="8"/>
-									<xsl:with-param name="expanded-columns" select="'1'"/>
+									<xsl:with-param name="count" select="6"/>
 									<xsl:with-param name="expanded-width" select="100"/>
 									<xsl:with-param name="expanded-width2" select="100"/>
 									<xsl:with-param name="default-width" select="160"/>
@@ -1942,8 +1767,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="5">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -1980,11 +1805,7 @@
 									
 								<xsl:for-each select="$executeMarketObligation">
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@ExecutionDate"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@ExecutionDate"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Currency"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Requirements, '##0.00')"/></ss:Data></ss:Cell>
@@ -2014,17 +1835,16 @@
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.5. Информация по обязательствам фондового рынка: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 			
 			<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 3.10. Оценка рублевой составляющей средств обеспечения: +++++++++++++++++++++++++++++++++++++++++++++++++-->
-			<xsl:variable name="executed_Evaluationrublecollateral" select="/REPORT_DOC/Evaluationrublecollateral/Evaluationrublecollateral"/>
+			<xsl:variable name="executed_Evaluationrublecollateral" select="/REPORT_DOC/Evaluationsrublecollateral/Evaluationrublecollateral"/>
 			    <xsl:variable name="executed_Evaluationrublecollateral_Data" select="count($executed_Evaluationrublecollateral) > 0"/>
 					<xsl:if test="$executed_Evaluationrublecollateral_Data">
 						<ss:Worksheet ss:Name="3.10. Оценка средств руб.">
 							<ss:Table ss:ExpandedColumnCount="4"
-									ss:ExpandedRowCount="{count(/REPORT_DOC/Evaluationrublecollateral/Evaluationrublecollateral) + 20}"
+									ss:ExpandedRowCount="{count(/REPORT_DOC/Evaluationsrublecollateral/Evaluationrublecollateral) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 									
 								<xsl:call-template name="generate-columns_3_10">
 									<xsl:with-param name="count" select="4"/>
-									<xsl:with-param name="expanded-columns" select="'1'"/>
 									<xsl:with-param name="expanded-width" select="100"/>
 									<xsl:with-param name="expanded-width2" select="100"/>
 									<xsl:with-param name="default-width" select="300"/>
@@ -2053,8 +1873,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="3">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -2084,14 +1904,10 @@
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Выплаченные проценты на рублевый остаток средств обеспечения</ss:Data></ss:Cell>
 								</ss:Row>
 								
-								<xsl:variable name="executeEvaluationrublecollateral" select="/REPORT_DOC/Evaluationrublecollateral/Evaluationrublecollateral"/>
+								<xsl:variable name="executeEvaluationrublecollateral" select="/REPORT_DOC/Evaluationsrublecollateral/Evaluationrublecollateral"/>
 								<xsl:for-each select="$executeEvaluationrublecollateral">
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@Date"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Date"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Requirements, '##0.00')"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Bid, '##0.00')"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Payments, '##0.00')"/></ss:Data></ss:Cell>
@@ -2117,17 +1933,16 @@
 			<!--+++++++++++++++++++++++++++++++++++++++ КОНЕЦ 3.10. Оценка рублевой составляющей средств обеспечения: ++++++++++++++++++++++++++++++++++++++++++++++++++-->
 			
 			<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 5.3. Расчет вариационной маржи: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-			<xsl:variable name="executed_Variation_Margin" select="/REPORT_DOC/CalculationVariationMargin/CalculationVariationMargin"/>
+			<xsl:variable name="executed_Variation_Margin" select="/REPORT_DOC/CalculationVariationMargin/CalculationsVariationMargin"/>
 			    <xsl:variable name="executed_Variation_Margin_Data" select="count($executed_Variation_Margin) > 0"/>
 					<xsl:if test="$executed_Variation_Margin_Data">
 						<ss:Worksheet ss:Name="5.3. Расчет маржи">
-							<ss:Table ss:ExpandedColumnCount="9"
-									ss:ExpandedRowCount="{count(/REPORT_DOC/CalculationVariationMargin/CalculationVariationMargin) + 20}"
+							<ss:Table ss:ExpandedColumnCount="6"
+									ss:ExpandedRowCount="{count(/REPORT_DOC/CalculationVariationMargin/CalculationsVariationMargin) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 							
 								<xsl:call-template name="generate-columns8">
-									<xsl:with-param name="count" select="8"/>
-									<xsl:with-param name="expanded-columns" select="'1'"/>
+									<xsl:with-param name="count" select="6"/>
 									<xsl:with-param name="expanded-width" select="100"/>
 									<xsl:with-param name="expanded-width2" select="100"/>
 									<xsl:with-param name="default-width" select="160"/>
@@ -2156,8 +1971,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="5">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -2190,15 +2005,11 @@
 								</ss:Row>
 								
 								
-								<xsl:variable name="executeVariationMargin" select="/REPORT_DOC/CalculationVariationMargin/CalculationVariationMargin"/>
+								<xsl:variable name="executeVariationMargin" select="/REPORT_DOC/CalculationVariationMargin/CalculationsVariationMargin"/>
 									
 								<xsl:for-each select="$executeVariationMargin">
 									<ss:Row ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@Date"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Date"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@EstimatedPrice, '##0.000000')"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Enrolled, '##0.00')"/></ss:Data></ss:Cell>
@@ -2243,12 +2054,12 @@
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 5.3. Расчет вариационной маржи: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 			
 			<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 5.4. Информация о движении денежных средств: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-			<xsl:variable name="executed_Cash_Flow" select="/REPORT_DOC/CashFlow/CashFlow"/>
+			<xsl:variable name="executed_Cash_Flow" select="/REPORT_DOC/CashesFlow/CashFlow"/>
 			    <xsl:variable name="executed_Cash_Flow_Data" select="count($executed_Cash_Flow) > 0"/>
 					<xsl:if test="$executed_Cash_Flow_Data">
 						<ss:Worksheet ss:Name="5.4. Информация о движении ДС">
 							<ss:Table ss:ExpandedColumnCount="5"
-									ss:ExpandedRowCount="{count(/REPORT_DOC/CashFlow/CashFlow) + 20}"
+									ss:ExpandedRowCount="{count(/REPORT_DOC/CashesFlow/CashFlow) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 							
 								<xsl:call-template name="generate-columns9">
@@ -2281,8 +2092,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="4">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -2313,15 +2124,11 @@
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Расход</ss:Data></ss:Cell>
 								</ss:Row>
 								
-								<xsl:variable name="executeCashFlow" select="/REPORT_DOC/CashFlow/CashFlow"/>
+								<xsl:variable name="executeCashFlow" select="/REPORT_DOC/CashesFlow/CashFlow"/>
 									
 								<xsl:for-each select="$executeCashFlow">
 									<ss:Row ss:Height="60" ss:AutoFitHeight="0">
-										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-											<xsl:call-template name="format-date">
-												<xsl:with-param name="date" select="@Date"/>
-											</xsl:call-template></ss:Data>
-										</ss:Cell>
+										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Date"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@NameOperation"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Currency"/></ss:Data></ss:Cell>
 										<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Receipt, '##0.00')"/></ss:Data></ss:Cell>
@@ -2334,10 +2141,10 @@
 										<ss:Data ss:Type="String">В разразе валют:</ss:Data>
 									</ss:Cell>
 								</ss:Row>
-								<xsl:for-each select="//REPORT_DOC/CashFlow/CashFlow[not(@Currency = preceding-sibling::CashFlow/@Currency)]">
+								<xsl:for-each select="//REPORT_DOC/CashesFlow/CashFlow[not(@Currency = preceding-sibling::CashFlow/@Currency)]">
 											<xsl:variable name="currentCurrency" select="@Currency"/>
 											<xsl:variable name="cashFlowForCurrency"
-														select="//REPORT_DOC/CashFlow/CashFlow[@Currency=$currentCurrency]"/>
+														select="//REPORT_DOC/CashesFlow/CashFlow[@Currency=$currentCurrency]"/>
 											<xsl:variable name="totalReceipt" select="sum($cashFlowForCurrency/@Receipt)"/>
 											<xsl:variable name="totalExpense" select="sum($cashFlowForCurrency/@Expense)"/>
 			
@@ -2379,7 +2186,7 @@
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 5.4. Информация о движении денежных средств: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 			
 			<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 5.5. Информация об остатках денежных средств: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-			<xsl:variable name="executed_Cash_Markets" select="/REPORT_DOC/CashBalances/CashMarkets/CashMarkets"/>
+			<xsl:variable name="executed_Cash_Markets" select="/REPORT_DOC/CashBalances/CashMarkets"/>
 			    <xsl:variable name="executed_Cash_Markets_Data" select="count($executed_Cash_Markets) > 0"/>
 					<xsl:if test="$executed_Cash_Markets_Data">
 						<ss:Worksheet ss:Name="5.5. Информация об остатках ДС">
@@ -2389,7 +2196,7 @@
 							
 								<xsl:call-template name="generate-columns_10">
 									<xsl:with-param name="count" select="16"/>
-									<xsl:with-param name="expanded-width" select="80"/>
+									<xsl:with-param name="expanded-width" select="100"/>
 									<xsl:with-param name="expanded-width2" select="100"/>
 									<xsl:with-param name="default-width" select="100"/>
 								</xsl:call-template>
@@ -2417,8 +2224,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="15">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -2483,11 +2290,7 @@
 											<!-- Вывод данных для текущего Marketplace -->
 											<xsl:for-each select="$dataForMarketplace">
 												<ss:Row ss:AutoFitHeight="0">
-													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-														<xsl:call-template name="format-date">
-															<xsl:with-param name="date" select="@Date"/>
-														</xsl:call-template></ss:Data>
-													</ss:Cell>
+													<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Date"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Currency"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@RemainderStart, '##0.00')"/></ss:Data></ss:Cell>
 													<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@DebtStart, '##0.00')"/></ss:Data></ss:Cell>
@@ -2552,12 +2355,7 @@
 									<xsl:variable name="totalPlannedClosing" select="sum($cashMarketsForGroup/@PlannedClosing)"/>
 									<xsl:if test="$cashMarketsForGroup">
 										<ss:Row ss:AutoFitHeight="0">
-											<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String">
-												<xsl:call-template name="format-date">
-													<xsl:with-param name="date" select="$cashMarketsForGroup[1]/@Date"/>
-												</xsl:call-template></ss:Data>
-											</ss:Cell>
-											
+											<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="$cashMarketsForGroup[1]/@Date"/></ss:Data></ss:Cell>
 											<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="$currentCurrency"/></ss:Data></ss:Cell>
 											<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number($totalRemainderStart, '##0.00')"/></ss:Data></ss:Cell>
 											<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number($totalDebtStart, '##0.00')"/></ss:Data></ss:Cell>
@@ -2635,8 +2433,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="1">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -2701,12 +2499,12 @@
 			<!--+++++++++++++++++++++++++++++++++++++++++++ КОНЕЦ 6.1. Расшифровка комиссий: ++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
 			
 			<!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 7.1. Расшифровка кодов ценных бумаг: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++-->
-			<xsl:variable name="executed_Security_Codes" select="/REPORT_DOC/SecurityCodes/SecurityCodes"/>
+			<xsl:variable name="executed_Security_Codes" select="/REPORT_DOC/SecurityesCodes/SecurityCodes"/>
 			    <xsl:variable name="executed_Security_Codes_Data" select="count($executed_Security_Codes) > 0"/>
 					<xsl:if test="$executed_Security_Codes_Data">
 						<ss:Worksheet ss:Name="7.1. Расшифровка кодов ЦБ">
 							<ss:Table ss:ExpandedColumnCount="6"
-									ss:ExpandedRowCount="{count(/REPORT_DOC/SecurityCodes/SecurityCodes) + 20}"
+									ss:ExpandedRowCount="{count(/REPORT_DOC/SecurityesCodes/SecurityCodes) + 20}"
 									x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 									
 								<xsl:call-template name="generate-columns_12">
@@ -2739,8 +2537,8 @@
 								</ss:Row>
 								<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="TitleRight" ss:MergeAcross="5">
-										<ss:Data ss:Type="String">Дата составления отчета: <xsl:call-template name="format-date">
-											<xsl:with-param name="date" select="/REPORT_DOC/Report/@ReportDate"/></xsl:call-template>
+										<ss:Data ss:Type="String">
+											Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 										</ss:Data>
 									</ss:Cell>
 								</ss:Row>
@@ -2772,7 +2570,7 @@
 									<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">ISIN код</ss:Data></ss:Cell>
 								</ss:Row>
 								
-								<xsl:variable name="executeSecurityCodes" select="/REPORT_DOC/SecurityCodes/SecurityCodes"/>
+								<xsl:variable name="executeSecurityCodes" select="/REPORT_DOC/SecurityesCodes/SecurityCodes"/>
 								<xsl:for-each select="$executeSecurityCodes">
 									<ss:Row ss:Height="70" ss:AutoFitHeight="0">
 										<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@NameSec"/></ss:Data></ss:Cell>
@@ -2811,7 +2609,7 @@
     <xsl:param name="expanded-columns"/>
     <xsl:param name="expanded-width"/>
     <xsl:param name="default-width"/>
-    <xsl:param name="total-columns" select="19"/>
+    <xsl:param name="total-columns" select="17"/>
 
 		<xsl:if test="$count > 0">
 			<xsl:choose>
@@ -2839,7 +2637,7 @@
     <xsl:param name="expanded-columns"/>
     <xsl:param name="expanded-width"/>
     <xsl:param name="default-width"/>
-    <xsl:param name="total-columns" select="14"/>
+    <xsl:param name="total-columns" select="12"/>
 
 		<xsl:if test="$count > 0">
 			<xsl:choose>
@@ -2867,11 +2665,11 @@
     <xsl:param name="expanded-columns"/>
     <xsl:param name="expanded-width"/>
     <xsl:param name="default-width"/>
-    <xsl:param name="total-columns" select="19"/>
+    <xsl:param name="total-columns" select="17"/>
 
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 7 or $total-columns - $count + 1 = 11 or $total-columns - $count + 1 = 14 or $total-columns - $count + 1 = 15 or $total-columns - $count + 1 = 19">
+				<xsl:when test="$total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 10 or $total-columns - $count + 1 = 13 or $total-columns - $count + 1 = 14 ">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2896,14 +2694,11 @@
     <xsl:param name="expanded-width"/>
     <xsl:param name="expanded-width2"/>
     <xsl:param name="default-width"/>
-    <xsl:param name="total-columns" select="14"/>
+    <xsl:param name="total-columns" select="13"/>
 
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 14">
-					<ss:Column ss:Width="{$expanded-width}"/>
-				</xsl:when>
-				<xsl:when test="$total-columns - $count + 1 = 4">
+				<xsl:when test="$total-columns - $count + 1 = 3">
 					<ss:Column ss:Width="{$expanded-width2}"/>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2929,14 +2724,14 @@
     <xsl:param name="expanded-width"/>
     <xsl:param name="expanded-width2"/>
     <xsl:param name="default-width"/>
-    <xsl:param name="total-columns" select="19"/>
+    <xsl:param name="total-columns" select="16"/>
 
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 7 or $total-columns - $count + 1 = 8 or $total-columns - $count + 1 = 9 or $total-columns - $count + 1 = 11 or $total-columns - $count + 1 = 18">
+				<xsl:when test="$total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 7 or $total-columns - $count + 1 = 8 or $total-columns - $count + 1 = 10">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
-				<xsl:when test="$total-columns - $count + 1 = 15">
+				<xsl:when test="$total-columns - $count + 1 = 14">
 					<ss:Column ss:Width="{$expanded-width2}"/>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2995,11 +2790,11 @@
     <xsl:param name="expanded-width"/>
     <xsl:param name="expanded-width2"/>
     <xsl:param name="default-width"/>
-    <xsl:param name="total-columns" select="14"/>
+    <xsl:param name="total-columns" select="13"/>
 
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6">
+				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 5">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<!--<xsl:when test="$total-columns - $count + 1 = 15">
@@ -3028,11 +2823,11 @@
     <xsl:param name="expanded-width"/>
     <xsl:param name="expanded-width2"/>
     <xsl:param name="default-width"/>
-    <xsl:param name="total-columns" select="9"/>
+    <xsl:param name="total-columns" select="7"/>
 
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6">
+				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 5">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<!--<xsl:when test="$total-columns - $count + 1 = 15">
@@ -3094,7 +2889,7 @@
     <xsl:param name="expanded-width"/>
     <xsl:param name="expanded-width2"/>
     <xsl:param name="default-width"/>
-    <xsl:param name="total-columns" select="8"/>
+    <xsl:param name="total-columns" select="6"/>
 
 		<xsl:if test="$count > 0">
 			<xsl:choose>
