@@ -16,7 +16,7 @@
 			<ss:Styles>
 				<ss:Style ss:ID="Default" ss:Name="Normal">
 					<ss:Alignment ss:Vertical="Center" ss:Horizontal="Left" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="9" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#000000"/>
@@ -27,7 +27,7 @@
 				</ss:Style>
 				<ss:Style ss:ID="Title">
 					<ss:Alignment ss:Vertical="Center" ss:Horizontal="Left" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="9" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#FFFFFF"/>
@@ -38,7 +38,7 @@
 				</ss:Style>
 				<ss:Style ss:ID="TitleCenter">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Center" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="16" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="9" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#FFFFFF"/>
@@ -49,12 +49,12 @@
 				</ss:Style>
 				<ss:Style ss:ID="Title_Center">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Center" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="16" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="12" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 				</ss:Style>
 				<ss:Style ss:ID="Title_Left_2">
 					<ss:Alignment ss:Vertical="Center" ss:Horizontal="Left" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="16" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="12" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 				</ss:Style>
 				<ss:Style ss:ID="TitleCenter_2">
@@ -81,7 +81,7 @@
 				</ss:Style>
 				<ss:Style ss:ID="TitleRight">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Right" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="12" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#FFFFFF"/>
@@ -92,17 +92,17 @@
 				</ss:Style>				
 				<ss:Style ss:ID="Title_Right">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Right" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="12" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 				</ss:Style>
 				<ss:Style ss:ID="Title_Left">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Left" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Bold="1" ss:Color="#0000FF" ss:Underline="Single"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="12" ss:Bold="1" ss:Color="#0000FF" ss:Underline="Single"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 				</ss:Style>
 				<ss:Style ss:ID="TitleRight2">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Right" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="16" ss:Bold="1" ss:Color="#DAA520"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="12" ss:Bold="1" ss:Color="#DAA520"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#FFFFFF"/>
@@ -113,17 +113,17 @@
 				</ss:Style>
 				<ss:Style ss:ID="TitleRight_2">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Right" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="16" ss:Bold="1" ss:Color="#DAA520"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="12" ss:Bold="1" ss:Color="#DAA520"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 				</ss:Style>
 				<ss:Style ss:ID="TitleRight_3">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Right" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Bold="1" ss:Color="#DAA520"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="12" ss:Bold="1" ss:Color="#DAA520"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 				</ss:Style>
 				<ss:Style ss:ID="TitleRight3">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Right" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Bold="1" ss:Color="#DAA520"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="12" ss:Bold="1" ss:Color="#DAA520"/>
 					<ss:Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#FFFFFF"/>
@@ -134,7 +134,7 @@
 				</ss:Style>
 				<ss:Style ss:ID="Orange">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Left" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="11" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="9" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#FFD700" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#000000"/>
@@ -145,7 +145,7 @@
 				</ss:Style>
 				<ss:Style ss:ID="Orange_right">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Right" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="11" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="9" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#FFD700" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#000000"/>
@@ -156,7 +156,7 @@
 				</ss:Style>
 				<ss:Style ss:ID="Grey">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Left" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="9" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#e6e6e6" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#000000"/>
@@ -167,7 +167,7 @@
 				</ss:Style>
 				<ss:Style ss:ID="Grey_right">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Right" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="9" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#e6e6e6" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#000000"/>
@@ -178,7 +178,7 @@
 				</ss:Style>
 				<ss:Style ss:ID="Grey_center">
 					<ss:Alignment ss:Vertical="Bottom" ss:Horizontal="Center" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="9" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#e6e6e6" ss:Pattern="Solid"/>
 					<ss:Borders>
 						<ss:Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#000000"/>
@@ -189,7 +189,7 @@
 				</ss:Style>
 				<ss:Style ss:ID="Header">
 					<ss:Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
-					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="14" ss:Bold="1" ss:Color="#000000"/>
+					<ss:Font ss:FontName="Calibri" x:CharSet="204" ss:Size="9" ss:Bold="1" ss:Color="#000000"/>
 					<ss:Interior ss:Color="#e6e6e6" ss:Pattern="Solid"/>
 				</ss:Style>
 				<ss:Style ss:ID="BoldText">
@@ -216,41 +216,41 @@
 			<Worksheet ss:Name="Главная" ss:DoNotDisplayGridlines="1">
 				<Table ss:StyleID="NoGrid">
 					<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-						<ss:Cell ss:StyleID="TitleRight_2" ss:MergeAcross="16">
+						<ss:Cell ss:StyleID="TitleRight_2" ss:MergeAcross="20">
 							<ss:Data ss:Type="String">Акционерное общество Финансовое ателье ГроттБьерн</ss:Data>
 						</ss:Cell>
 					</ss:Row>
 					<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-						<ss:Cell ss:StyleID="TitleRight_3" ss:MergeAcross="16">
+						<ss:Cell ss:StyleID="TitleRight_3" ss:MergeAcross="20">
 							<ss:Data ss:Type="String">Лицензия: № 166-02672-100000 от 01.11.2000 г.</ss:Data>
 						</ss:Cell>
 					</ss:Row>
 					
 					<ss:Row ss:Height="40" ss:AutoFitHeight="0">
-						<ss:Cell ss:StyleID="Title_Center" ss:MergeAcross="16">
+						<ss:Cell ss:StyleID="Title_Center" ss:MergeAcross="20">
 							<ss:Data ss:Type="String">Отчёт брокера по операциям за период</ss:Data>
 						</ss:Cell>
 					</ss:Row>
 					<ss:Row ss:Height="20" ss:AutoFitHeight="0">
-						<ss:Cell ss:StyleID="TitleCenter_2" ss:MergeAcross="16">
+						<ss:Cell ss:StyleID="TitleCenter_2" ss:MergeAcross="20">
 							<ss:Data ss:Type="String">По сделкам и операциям за период: <xsl:value-of select="/REPORT_DOC/Report/@PeriodBegin"/>-<xsl:value-of select="/REPORT_DOC/Report/@PeriodEnd"/></ss:Data>
 						</ss:Cell>
 					</ss:Row>
 					<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-						<ss:Cell ss:StyleID="Title_Right" ss:MergeAcross="16">
+						<ss:Cell ss:StyleID="Title_Right" ss:MergeAcross="20">
 							<ss:Data ss:Type="String">
 								Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 							</ss:Data>
 						</ss:Cell>
 					</ss:Row>
 					<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-						<ss:Cell ss:StyleID="Title_Right" ss:MergeAcross="16">
+						<ss:Cell ss:StyleID="Title_Right" ss:MergeAcross="20">
 							<ss:Data ss:Type="String">Клиент: <xsl:value-of select="/REPORT_DOC/Report/@ClientName"/>
 							</ss:Data>
 						</ss:Cell>
 					</ss:Row>
 					<ss:Row ss:Height="15" ss:AutoFitHeight="0">
-						<ss:Cell ss:StyleID="Title_Right" ss:MergeAcross="16">
+						<ss:Cell ss:StyleID="Title_Right" ss:MergeAcross="20">
 							<ss:Data ss:Type="String"><xsl:value-of select="/REPORT_DOC/Report/@AgreementBasis"/>
 							</ss:Data>
 						</ss:Cell>
@@ -432,7 +432,7 @@
 								<ss:Data ss:Type="String">1.1. Ценные бумаги</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="60" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата совершения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Время совершения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата исполнения сделки</ss:Data></ss:Cell>
@@ -459,7 +459,7 @@
 						</ss:Row>
 						<xsl:variable name="executedSec" select="/REPORT_DOC/Sec/Securities[@Status='1']"/>
 						<xsl:for-each select="$executedSec">
-							<ss:Row ss:Height="40" ss:AutoFitHeight="0">
+							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@ExecutionDate"/></ss:Data></ss:Cell>
@@ -636,8 +636,8 @@
 					
 						<xsl:call-template name="generate-columns2">
 							<xsl:with-param name="count" select="13"/>
-							<xsl:with-param name="expanded-width" select="150"/>
-							<xsl:with-param name="default-width" select="90"/>
+							<xsl:with-param name="expanded-width" select="120"/>
+							<xsl:with-param name="default-width" select="70"/>
 						</xsl:call-template>
 						
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -646,7 +646,7 @@
 							</ss:Cell>
 						</ss:Row>
 					
-						<ss:Row ss:Height="120" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата совершения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Время совершения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Биржевой номер сделки</ss:Data></ss:Cell>
@@ -770,12 +770,12 @@
 								<ss:Data ss:Type="String">1.3. Сделки РЕПО:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата заключения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Время заключения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата исполнения обязательств</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Номер биржевой сделки</ss:Data></ss:Cell>
-							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Код рсчетов</ss:Data></ss:Cell>
+							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Код расчетов</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Срок расчетов, дн.</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Вид сделки (покупка, продажа, иной вид)</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Инструмент</ss:Data></ss:Cell>
@@ -973,9 +973,9 @@
 					
 						<xsl:call-template name="generate-columns_1_4">
 							<xsl:with-param name="count" select="14"/>
-							<xsl:with-param name="expanded-width" select="60"/>
-							<xsl:with-param name="expanded-width2" select="150"/>
-							<xsl:with-param name="default-width" select="90"/>
+							<xsl:with-param name="expanded-width" select="80"/>
+							<xsl:with-param name="expanded-width2" select="60"/>
+							<xsl:with-param name="default-width" select="60"/>
 						</xsl:call-template>
 				
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -983,7 +983,7 @@
 								<ss:Data ss:Type="String">1.4. Иные операции(займ, мена и др):</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Время</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Инструмент</ss:Data></ss:Cell>
@@ -1001,7 +1001,7 @@
 						</ss:Row>
 						<xsl:variable name="executeOtherOperation" select="/REPORT_DOC/OtherOperations/OtherOperation"/>
 						<xsl:for-each select="$executeOtherOperation">
-							<ss:Row ss:Height="40" ss:AutoFitHeight="0">
+							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
@@ -1100,7 +1100,7 @@
 						<xsl:call-template name="generate-columns4">
 							<xsl:with-param name="count" select="17"/>
 							<xsl:with-param name="expanded-width" select="60"/>
-							<xsl:with-param name="expanded-width2" select="100"/>
+							<xsl:with-param name="expanded-width2" select="140"/>
 							<xsl:with-param name="default-width" select="90"/>
 						</xsl:call-template>
 					
@@ -1109,7 +1109,7 @@
 								<ss:Data ss:Type="String">1.6. Инструменты валютного рынка и рынка драгоценных металлов:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата совершения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Время совершения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата исполнения сделки</ss:Data></ss:Cell>
@@ -1135,7 +1135,7 @@
 						</ss:Row>
 						<xsl:variable name="executeMetalMarkets" select="/REPORT_DOC/AssetsForeignMetalMarkets/AssetForeignMetalMarkets[@Status='1']"/>
 						<xsl:for-each select="$executeMetalMarkets">
-							<ss:Row ss:Height="60" ss:AutoFitHeight="0">
+							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@DateOfFulfillmentOfObligations"/></ss:Data></ss:Cell>
@@ -1190,7 +1190,7 @@
 								<ss:Data ss:Type="String">Незавершенные сделки к исполнению:</ss:Data></ss:Cell>
 							</ss:Row>
 							<xsl:for-each select="$executeMetalMarkets2">
-								<ss:Row ss:Height="60" ss:AutoFitHeight="0">
+								<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Timeoftransaction"/></ss:Data></ss:Cell>
 									<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@DateOfFulfillmentOfObligations"/></ss:Data></ss:Cell>
@@ -1286,9 +1286,9 @@
 							
 						<xsl:call-template name="generate-columns5">
 							<xsl:with-param name="count" select="6"/>
-							<xsl:with-param name="expanded-width" select="100"/>
-							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="180"/>
+							<xsl:with-param name="expanded-width" select="60"/>
+							<xsl:with-param name="expanded-width2" select="80"/>
+							<xsl:with-param name="default-width" select="240"/>
 						</xsl:call-template>
 					
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -1296,7 +1296,7 @@
 								<ss:Data ss:Type="String">3.1. Инофрмация об операциях с ЦБ:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата совершения операции</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Место учета ЦБ</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Вид, тип, форма выпуска, транш, серия</ss:Data></ss:Cell>
@@ -1306,7 +1306,7 @@
 						</ss:Row>
 						<xsl:variable name="executeTransactionsSecurities" select="/REPORT_DOC/TransactionsSecurities/TransactionSecurities"/>
 						<xsl:for-each select="$executeTransactionsSecurities">
-							<ss:Row ss:Height="60" ss:AutoFitHeight="0">
+							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Dateoftransaction"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@PlaceRegistration"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
@@ -1372,8 +1372,8 @@
 						<xsl:call-template name="generate-columns6">
 							<xsl:with-param name="count" select="13"/>
 							<xsl:with-param name="expanded-width" select="100"/>
-							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="100"/>
+							<xsl:with-param name="expanded-width2" select="180"/>
+							<xsl:with-param name="default-width" select="60"/>
 						</xsl:call-template>
 						
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -1381,7 +1381,7 @@
 								<ss:Data ss:Type="String">3.2. Информация о состоянии портфеля ценных бумаг:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="120" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Инструмент</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Место учета ЦБ</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Всего</ss:Data></ss:Cell>
@@ -1398,7 +1398,7 @@
 						</ss:Row>
 						<xsl:variable name="executeSecuritiesPortfolio" select="/REPORT_DOC/StatesSecuritiesPortfolio/StateSecuritiesPortfolio"/>
 						<xsl:for-each select="$executeSecuritiesPortfolio">
-							<ss:Row ss:Height="75" ss:AutoFitHeight="0">
+							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@PlaceRegistration"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="RightAlign">
@@ -1496,7 +1496,7 @@
 							<xsl:with-param name="count" select="7"/>
 							<xsl:with-param name="expanded-width" select="100"/>
 							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="160"/>
+							<xsl:with-param name="default-width" select="100"/>
 						</xsl:call-template>
 					
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -1504,7 +1504,7 @@
 								<ss:Data ss:Type="String">3.3. Информация об открытых позициях по фьючерсным контрактам и опционам:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Инструмент</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Остаток на начало отчетного периода</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Покупка</ss:Data></ss:Cell>
@@ -1589,7 +1589,7 @@
 							<xsl:with-param name="count" select="7"/>
 							<xsl:with-param name="expanded-width" select="100"/>
 							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="140"/>
+							<xsl:with-param name="default-width" select="100"/>
 						</xsl:call-template>
 					
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -1597,7 +1597,7 @@
 								<ss:Data ss:Type="String">3.4. Информация по обязательствам валютного рынка и рынка драгоценных металлов:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата исполнения</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Нетто-требование</ss:Data></ss:Cell>
@@ -1631,9 +1631,9 @@
 										</xsl:otherwise>
 									</xsl:choose>
 								</ss:Cell>
-								<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Total, '##0.00')"/></ss:Data></ss:Cell>
-								<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Quotation, '##0.0000')"/></ss:Data></ss:Cell>
-								<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@CostRUR, '##0.00')"/></ss:Data></ss:Cell>
+								<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Total, '##0.00')"/></ss:Data></ss:Cell>
+								<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Quotation, '##0.0000')"/></ss:Data></ss:Cell>
+								<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@CostRUR, '##0.00')"/></ss:Data></ss:Cell>
 							</ss:Row>
 						</xsl:for-each>	
 						<Row ss:Height="40">
@@ -1673,7 +1673,7 @@
 							<xsl:with-param name="count" select="6"/>
 							<xsl:with-param name="expanded-width" select="100"/>
 							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="160"/>
+							<xsl:with-param name="default-width" select="100"/>
 						</xsl:call-template>
 					
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -1681,7 +1681,7 @@
 								<ss:Data ss:Type="String">3.5. Информация по обязательствам фондового рынка:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата исполнения</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Инструмент</ss:Data></ss:Cell>
@@ -1737,7 +1737,7 @@
 							<xsl:with-param name="count" select="4"/>
 							<xsl:with-param name="expanded-width" select="100"/>
 							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="300"/>
+							<xsl:with-param name="default-width" select="140"/>
 						</xsl:call-template>
 					
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -1745,7 +1745,7 @@
 								<ss:Data ss:Type="String">3.10. Оценка рублевой составляющей средств обеспечения:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Рублевая составляющая средств обеспечения</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Ставка RUONIA</ss:Data></ss:Cell>
@@ -1797,7 +1797,7 @@
 							<xsl:with-param name="count" select="6"/>
 							<xsl:with-param name="expanded-width" select="100"/>
 							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="160"/>
+							<xsl:with-param name="default-width" select="100"/>
 						</xsl:call-template>
 					
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -1805,7 +1805,7 @@
 								<ss:Data ss:Type="String">5.3. Расчет вариационной маржи:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Инструмент</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Рыночная цена</ss:Data></ss:Cell>
@@ -1883,7 +1883,7 @@
 								<ss:Data ss:Type="String">5.4. Информация о движении денежных средств:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата совершения операции</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Наименование операции</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта операции</ss:Data></ss:Cell>
@@ -1892,9 +1892,9 @@
 						</ss:Row>
 						<xsl:variable name="executeCashFlow" select="/REPORT_DOC/CashesFlow/CashFlow"/>
 						<xsl:for-each select="$executeCashFlow">
-							<ss:Row ss:Height="60" ss:AutoFitHeight="0">
+							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Date"/></ss:Data></ss:Cell>
-								<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@NameOperation"/></ss:Data></ss:Cell>
+								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@NameOperation"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@Currency"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Receipt, '##0.00')"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="RightAlign"><ss:Data ss:Type="String"><xsl:value-of select="format-number(@Expense, '##0.00')"/></ss:Data></ss:Cell>
@@ -1963,7 +1963,7 @@
 					
 						<xsl:call-template name="generate-columns_10">
 							<xsl:with-param name="count" select="16"/>
-							<xsl:with-param name="expanded-width" select="100"/>
+							<xsl:with-param name="expanded-width" select="60"/>
 							<xsl:with-param name="expanded-width2" select="100"/>
 							<xsl:with-param name="default-width" select="100"/>
 						</xsl:call-template>
@@ -1973,7 +1973,7 @@
 								<ss:Data ss:Type="String">5.5. Информация об остатках денежных средств:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="120" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="60" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Остаток (Начало отчетного периода)</ss:Data></ss:Cell>
@@ -2031,7 +2031,7 @@
 								</xsl:for-each>
 								<ss:Row ss:AutoFitHeight="0">
 									<ss:Cell ss:StyleID="Orange" ss:MergeAcross="13">
-										<ss:Data ss:Type="String">Итого по портфелям:</ss:Data>
+										<ss:Data ss:Type="String">Итого по портфелю:</ss:Data>
 									</ss:Cell>
 									<ss:Cell ss:StyleID="Orange_right">
 										<ss:Data ss:Type="String"><xsl:choose><xsl:when test="$currentTotalSum = '0.00' or $currentTotalSum = 0"><xsl:value-of select="''"/></xsl:when><xsl:otherwise><xsl:value-of select="$currentTotalSum"/></xsl:otherwise></xsl:choose></ss:Data>
@@ -2129,9 +2129,9 @@
 							
 						<xsl:call-template name="generate-columns_11">
 							<xsl:with-param name="count" select="2"/>
-							<xsl:with-param name="expanded-width" select="800"/>
+							<xsl:with-param name="expanded-width" select="500"/>
 							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="200"/>
+							<xsl:with-param name="default-width" select="100"/>
 						</xsl:call-template>
 					
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -2139,7 +2139,7 @@
 								<ss:Data ss:Type="String">6.1. Расшифровка комиссий:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Вид комиссии</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Сумма, руб.</ss:Data></ss:Cell>
 						</ss:Row>
@@ -2194,9 +2194,10 @@
 							
 						<xsl:call-template name="generate-columns_12">
 							<xsl:with-param name="count" select="6"/>
-							<xsl:with-param name="expanded-width" select="120"/>
-							<xsl:with-param name="expanded-width2" select="140"/>
-							<xsl:with-param name="default-width" select="300"/>
+							<xsl:with-param name="expanded-width" select="100"/>
+							<xsl:with-param name="expanded-width2" select="90"/>
+							<xsl:with-param name="expanded-width3" select="300"/>
+							<xsl:with-param name="default-width" select="550"/>
 						</xsl:call-template>
 					
 						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
@@ -2204,7 +2205,7 @@
 								<ss:Data ss:Type="String">7.1. Расшифровка кодов ценных бумаг и иных финансовых инструментов:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Ценная бумага/Инструмент</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Вид, форма выпуска ценной бумаги/Вид инструмента</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Тип ценной бумаги</ss:Data></ss:Cell>
@@ -2214,7 +2215,7 @@
 						</ss:Row>
 						<xsl:variable name="executeSecurityCodes" select="/REPORT_DOC/SecurityesCodes/SecurityCodes"/>
 						<xsl:for-each select="$executeSecurityCodes">
-							<ss:Row ss:Height="70" ss:AutoFitHeight="0">
+							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@NameSec"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@TypeCBFormIssue"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@TypeSec"/></ss:Data></ss:Cell>
@@ -2258,7 +2259,7 @@
 		<xsl:param name="total-columns" select="18"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 2  or $total-columns - $count + 1 = 3  or $total-columns - $count + 1 = 4  or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 9 or $total-columns - $count + 1 = 15 or $total-columns - $count + 1 = 16 or $total-columns - $count + 1 = 17 or $total-columns - $count + 1 = 18">
+				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 2  or $total-columns - $count + 1 = 3  or $total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 16 or $total-columns - $count + 1 = 17 or $total-columns - $count + 1 = 18">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2312,7 +2313,7 @@
 		<xsl:param name="total-columns" select="18"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 10 or $total-columns - $count + 1 = 13 or $total-columns - $count + 1 = 14 ">
+				<xsl:when test="$total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 8 or $total-columns - $count + 1 = 9 or $total-columns - $count + 1 = 10 or $total-columns - $count + 1 = 13 or $total-columns - $count + 1 = 14 or $total-columns - $count + 1 = 15 or $total-columns - $count + 1 = 16 or $total-columns - $count + 1 = 17 or $total-columns - $count + 1 = 18">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2343,6 +2344,9 @@
 				<xsl:when test="$total-columns - $count + 1 = 3">
 					<ss:Column ss:Width="{$expanded-width2}"/>
 				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 4">
+					<ss:Column ss:Width="{$expanded-width}"/>
+				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
 				</xsl:otherwise>
@@ -2369,7 +2373,7 @@
 		<xsl:param name="total-columns" select="17"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 7 or $total-columns - $count + 1 = 8 or $total-columns - $count + 1 = 10">
+				<xsl:when test="$total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 7 or $total-columns - $count + 1 = 8 or $total-columns - $count + 1 = 9 or $total-columns - $count + 1 = 10 or $total-columns - $count + 1 = 12 or $total-columns - $count + 1 = 13 or $total-columns - $count + 1 = 15 or $total-columns - $count + 1 = 16 or $total-columns - $count + 1 = 17">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<xsl:when test="$total-columns - $count + 1 = 14">
@@ -2398,11 +2402,14 @@
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
 		<xsl:param name="default-width"/>
-		<xsl:param name="total-columns" select="9"/>
+		<xsl:param name="total-columns" select="6"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
 				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6">
 					<ss:Column ss:Width="{$expanded-width}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 2">
+					<ss:Column ss:Width="{$expanded-width2}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2430,8 +2437,11 @@
 		<xsl:param name="total-columns" select="13"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 5">
+				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 13">
 					<ss:Column ss:Width="{$expanded-width}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 2">
+					<ss:Column ss:Width="{$expanded-width2}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2459,7 +2469,7 @@
 		<xsl:param name="total-columns" select="7"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 5">
+				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 7">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2604,7 +2614,7 @@
 		<xsl:param name="total-columns" select="16"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 2 or $total-columns - $count + 1 = 3 or $total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 10 or $total-columns - $count + 1 = 11 or $total-columns - $count + 1 = 13 or $total-columns - $count + 1 = 14">
+				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 2 or $total-columns - $count + 1 = 3 or $total-columns - $count + 1 = 14 or $total-columns - $count + 1 = 15">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2658,6 +2668,7 @@
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="6"/>
 		<xsl:if test="$count > 0">
@@ -2668,6 +2679,9 @@
 				<xsl:when test="$total-columns - $count + 1 = 1">
 					<ss:Column ss:Width="{$expanded-width2}"/>
 				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 2">
+					<ss:Column ss:Width="{$expanded-width3}"/>
+				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
 				</xsl:otherwise>
@@ -2677,6 +2691,7 @@
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
 				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
