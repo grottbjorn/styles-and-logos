@@ -239,6 +239,13 @@
 					<ss:Row ss:Height="15" ss:AutoFitHeight="0">
 						<ss:Cell ss:StyleID="Title_Right" ss:MergeAcross="20">
 							<ss:Data ss:Type="String">
+								Счет клиента: <xsl:value-of select="/REPORT_DOC/Report/@ClientCode"/>
+							</ss:Data>
+						</ss:Cell>
+					</ss:Row>
+					<ss:Row ss:Height="15" ss:AutoFitHeight="0">
+						<ss:Cell ss:StyleID="Title_Right" ss:MergeAcross="20">
+							<ss:Data ss:Type="String">
 								Дата составления отчета: <xsl:value-of select="/REPORT_DOC/Report/@ReportDate"/>
 							</ss:Data>
 						</ss:Cell>
@@ -266,7 +273,7 @@
 					<xsl:if test="$executedSection_MENU_DATA">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'1.1. Ценные бумаги'!A1">
-								<Data ss:Type="String">- 1.1. Ценные бумаги</Data>
+								<Data ss:Type="String">1.1. Ценные бумаги</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -275,7 +282,7 @@
 					<xsl:if test="$FORTS_MENU">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'1.2. Срочные сделки'!A1">
-								<Data ss:Type="String">- 1.2. Срочные сделки</Data>
+								<Data ss:Type="String">1.2. Срочные сделки</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -285,7 +292,7 @@
 					<xsl:if test="$executed_REPODeal_MENU_DATA">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'1.3. Сделки РЕПО'!A1">
-								<Data ss:Type="String">- 1.3. Сделки РЕПО</Data>
+								<Data ss:Type="String">1.3. Сделки РЕПО</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -294,7 +301,7 @@
 					<xsl:if test="$executedOther_Operation_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'1.4. Иные операции'!A1">
-								<Data ss:Type="String">- 1.4.  Иные операции(займ, мена и др)</Data>
+								<Data ss:Type="String">1.4.  Иные операции(займ, мена и др)</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -304,7 +311,7 @@
 					<xsl:if test="$executedOther_Metal_Markets_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'1.6. Валютный и Драг. металлы'!A1">
-								<Data ss:Type="String">- 1.6. Инструменты валютного рынка и рынка драгоценных металлов</Data>
+								<Data ss:Type="String">1.6. Инструменты валютного рынка и рынка драгоценных металлов</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -313,7 +320,7 @@
 					<xsl:if test="$executedTransactions_Securities_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'3.1. Операции с ЦБ'!A1">
-								<Data ss:Type="String">- 3.1. Инофрмация об операциях с ЦБ</Data>
+								<Data ss:Type="String">3.1. Инофрмация об операциях с ЦБ</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -322,7 +329,7 @@
 					<xsl:if test="$executed_State_Securities_Portfolio_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'3.2. Состояние портфеля ЦБ'!A1">
-								<Data ss:Type="String">- 3.2. Информация о состоянии портфеля ценных бумаг</Data>
+								<Data ss:Type="String">3.2. Информация о состоянии портфеля ценных бумаг</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -331,7 +338,7 @@
 					<xsl:if test="$executed_Futures_Options_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'3.3. Контракты и опционы'!A1">
-								<Data ss:Type="String">- 3.3. Информация об открытых позициях по фьючерсным контрактам и опционам</Data>
+								<Data ss:Type="String">3.3. Информация об открытых позициях по фьючерсным контрактам и опционам</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -340,7 +347,7 @@
 					<xsl:if test="$executed_Metals_Market_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'3.4. Обязательства ВР и ДМ'!A1">
-								<Data ss:Type="String">- 3.4. Информация по обязательствам валютного рынка и рынка драгоценных металлов</Data>
+								<Data ss:Type="String">3.4. Информация по обязательствам валютного рынка и рынка драгоценных металлов</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -349,7 +356,7 @@
 					<xsl:if test="$executed_Market_Obligation_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'3.5. Фондовый рынок'!A1">
-								<Data ss:Type="String">- 3.5.  Информация по обязательствам фондового рынка</Data>
+								<Data ss:Type="String">3.5.  Информация по обязательствам фондового рынка</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -358,7 +365,7 @@
 					<xsl:if test="$executed_Evaluationrublecollateral_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'3.10. Оценка средств руб.'!A1">
-								<Data ss:Type="String">- 3.10. Оценка рублевой составляющей средств обеспечения</Data>
+								<Data ss:Type="String">3.10. Оценка рублевой составляющей средств обеспечения</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -367,7 +374,7 @@
 					<xsl:if test="$executed_Variation_Margin_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'5.3. Расчет маржи'!A1">
-								<Data ss:Type="String">- 5.3. Расчет вариационной маржи</Data>
+								<Data ss:Type="String">5.3. Расчет вариационной маржи</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -376,7 +383,7 @@
 					<xsl:if test="$executed_Cash_Flow_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'5.4. Информация о движении ДС'!A1">
-								<Data ss:Type="String">- 5.4. Информация о движении денежных средств</Data>
+								<Data ss:Type="String">5.4. Информация о движении денежных средств</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -385,7 +392,7 @@
 					<xsl:if test="$executed_Cash_Markets_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'5.5. Информация об остатках ДС'!A1">
-								<Data ss:Type="String">- 5.5. Информация об остатках денежных средств</Data>
+								<Data ss:Type="String">5.5. Информация об остатках денежных средств</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -394,7 +401,7 @@
 					<xsl:if test="$executed_Commission_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'6.1. Расшифровка комиссий'!A1">
-								<Data ss:Type="String">- 6.1. Расшифровка комиссий</Data>
+								<Data ss:Type="String">6.1. Расшифровка комиссий</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -403,7 +410,7 @@
 					<xsl:if test="$executed_Security_Codes_MENU_Data">
 						<Row>
 							<Cell ss:StyleID="Title_Left" ss:MergeAcross="16" ss:HRef="#'7.1. Расшифровка кодов ЦБ'!A1">
-								<Data ss:Type="String">- 7.1. Расшифровка кодов ценных бумаг и иных финансовых инструментов</Data>
+								<Data ss:Type="String">7.1. Расшифровка кодов ценных бумаг и иных финансовых инструментов</Data>
 							</Cell>
 						</Row>
 					</xsl:if>
@@ -423,11 +430,11 @@
 				
 						<xsl:call-template name="generate-columns">
 							<xsl:with-param name="count" select="18"/>
-							<xsl:with-param name="expanded-width" select="100"/>
-							<xsl:with-param name="default-width" select="60"/>	
+							<xsl:with-param name="expanded-width" select="55"/>
+							<xsl:with-param name="default-width" select="53"/>	
 						</xsl:call-template>
 						
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="17">
 								<ss:Data ss:Type="String">1.1. Ценные бумаги</ss:Data>
 							</ss:Cell>
@@ -636,17 +643,19 @@
 					
 						<xsl:call-template name="generate-columns2">
 							<xsl:with-param name="count" select="13"/>
-							<xsl:with-param name="expanded-width" select="120"/>
-							<xsl:with-param name="default-width" select="70"/>
+							<xsl:with-param name="expanded-width" select="90"/>
+							<xsl:with-param name="expanded-width2" select="60"/>
+							<xsl:with-param name="expanded-width3" select="45"/>
+							<xsl:with-param name="default-width" select="55"/>
 						</xsl:call-template>
 						
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="12">
 								<ss:Data ss:Type="String">1.2. Срочные сделки:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
 					
-						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="75" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата совершения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Время совершения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Биржевой номер сделки</ss:Data></ss:Cell>
@@ -762,15 +771,20 @@
 					
 						<xsl:call-template name="generate-columns3">
 							<xsl:with-param name="count" select="18"/>
-							<xsl:with-param name="expanded-width" select="60"/>
-							<xsl:with-param name="default-width" select="90"/>
+							<xsl:with-param name="expanded-width" select="50"/>
+							<xsl:with-param name="expanded-width2" select="60"/>
+							<xsl:with-param name="expanded-width3" select="40"/>
+							<xsl:with-param name="expanded-width4" select="45"/>
+							<xsl:with-param name="expanded-width5" select="40"/>
+							<xsl:with-param name="expanded-width6" select="37"/>
+							<xsl:with-param name="default-width" select="60"/>
 						</xsl:call-template>
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="17">
 								<ss:Data ss:Type="String">1.3. Сделки РЕПО:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="50" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата заключения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Время заключения сделки</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата исполнения обязательств</ss:Data></ss:Cell>
@@ -974,11 +988,14 @@
 						<xsl:call-template name="generate-columns_1_4">
 							<xsl:with-param name="count" select="14"/>
 							<xsl:with-param name="expanded-width" select="80"/>
-							<xsl:with-param name="expanded-width2" select="60"/>
-							<xsl:with-param name="default-width" select="60"/>
+							<xsl:with-param name="expanded-width2" select="55"/>
+							<xsl:with-param name="expanded-width3" select="50"/>
+							<xsl:with-param name="expanded-width4" select="40"/>
+							<xsl:with-param name="expanded-width5" select="55"/>
+							<xsl:with-param name="default-width" select="45"/>
 						</xsl:call-template>
 				
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="13">
 								<ss:Data ss:Type="String">1.4. Иные операции(займ, мена и др):</ss:Data>
 							</ss:Cell>
@@ -1099,12 +1116,17 @@
 							
 						<xsl:call-template name="generate-columns4">
 							<xsl:with-param name="count" select="17"/>
-							<xsl:with-param name="expanded-width" select="60"/>
-							<xsl:with-param name="expanded-width2" select="140"/>
-							<xsl:with-param name="default-width" select="90"/>
+							<xsl:with-param name="expanded-width" select="35"/>
+							<xsl:with-param name="expanded-width2" select="25"/>
+							<xsl:with-param name="expanded-width3" select="60"/>
+							<xsl:with-param name="expanded-width4" select="45"/>
+							<xsl:with-param name="expanded-width5" select="58"/>
+							<xsl:with-param name="expanded-width6" select="125"/>
+							<xsl:with-param name="expanded-width7" select="43"/>
+							<xsl:with-param name="default-width" select="53"/>
 						</xsl:call-template>
 					
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="16">
 								<ss:Data ss:Type="String">1.6. Инструменты валютного рынка и рынка драгоценных металлов:</ss:Data>
 							</ss:Cell>
@@ -1286,12 +1308,14 @@
 							
 						<xsl:call-template name="generate-columns5">
 							<xsl:with-param name="count" select="6"/>
-							<xsl:with-param name="expanded-width" select="60"/>
-							<xsl:with-param name="expanded-width2" select="80"/>
-							<xsl:with-param name="default-width" select="240"/>
+							<xsl:with-param name="expanded-width" select="53"/>
+							<xsl:with-param name="expanded-width2" select="68"/>
+							<xsl:with-param name="expanded-width3" select="110"/>
+							<xsl:with-param name="expanded-width4" select="48"/>
+							<xsl:with-param name="default-width" select="230"/>
 						</xsl:call-template>
 					
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="5">
 								<ss:Data ss:Type="String">3.1. Инофрмация об операциях с ЦБ:</ss:Data>
 							</ss:Cell>
@@ -1371,17 +1395,20 @@
 					
 						<xsl:call-template name="generate-columns6">
 							<xsl:with-param name="count" select="13"/>
-							<xsl:with-param name="expanded-width" select="100"/>
-							<xsl:with-param name="expanded-width2" select="180"/>
+							<xsl:with-param name="expanded-width" select="90"/>
+							<xsl:with-param name="expanded-width2" select="163"/>
+							<xsl:with-param name="expanded-width3" select="38"/>
+							<xsl:with-param name="expanded-width4" select="45"/>
+							<xsl:with-param name="expanded-width5" select="57"/>
 							<xsl:with-param name="default-width" select="60"/>
 						</xsl:call-template>
 						
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="12">
 								<ss:Data ss:Type="String">3.2. Информация о состоянии портфеля ценных бумаг:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="80" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Инструмент</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Место учета ЦБ</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Всего</ss:Data></ss:Cell>
@@ -1400,7 +1427,7 @@
 						<xsl:for-each select="$executeSecuritiesPortfolio">
 							<ss:Row ss:Height="20" ss:AutoFitHeight="0">
 								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@Asset"/></ss:Data></ss:Cell>
-								<ss:Cell ss:StyleID="CenterAlign"><ss:Data ss:Type="String"><xsl:value-of select="@PlaceRegistration"/></ss:Data></ss:Cell>
+								<ss:Cell ss:StyleID="Default"><ss:Data ss:Type="String"><xsl:value-of select="@PlaceRegistration"/></ss:Data></ss:Cell>
 								<ss:Cell ss:StyleID="RightAlign">
 									<xsl:choose>
 										<xsl:when test="@RemainderStart != '0.00'">
@@ -1494,17 +1521,17 @@
 					
 						<xsl:call-template name="generate-columns7">
 							<xsl:with-param name="count" select="7"/>
-							<xsl:with-param name="expanded-width" select="100"/>
+							<xsl:with-param name="expanded-width" select="60"/>
 							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="100"/>
+							<xsl:with-param name="default-width" select="40"/>
 						</xsl:call-template>
 					
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="6">
 								<ss:Data ss:Type="String">3.3. Информация об открытых позициях по фьючерсным контрактам и опционам:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="60" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Инструмент</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Остаток на начало отчетного периода</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Покупка</ss:Data></ss:Cell>
@@ -1587,17 +1614,18 @@
 							
 						<xsl:call-template name="generate-columns_3_4">
 							<xsl:with-param name="count" select="7"/>
-							<xsl:with-param name="expanded-width" select="100"/>
-							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="100"/>
+							<xsl:with-param name="expanded-width" select="50"/>
+							<xsl:with-param name="expanded-width2" select="53"/>
+							<xsl:with-param name="expanded-width3" select="35"/>
+							<xsl:with-param name="default-width" select="60"/>
 						</xsl:call-template>
 					
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="6">
 								<ss:Data ss:Type="String">3.4. Информация по обязательствам валютного рынка и рынка драгоценных металлов:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="20" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата исполнения</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Нетто-требование</ss:Data></ss:Cell>
@@ -1671,17 +1699,17 @@
 							
 						<xsl:call-template name="generate-columns8">
 							<xsl:with-param name="count" select="6"/>
-							<xsl:with-param name="expanded-width" select="100"/>
-							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="100"/>
+							<xsl:with-param name="expanded-width" select="55"/>
+							<xsl:with-param name="expanded-width2" select="35"/>
+							<xsl:with-param name="default-width" select="60"/>
 						</xsl:call-template>
 					
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="5">
 								<ss:Data ss:Type="String">3.5. Информация по обязательствам фондового рынка:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="20" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата исполнения</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Инструмент</ss:Data></ss:Cell>
@@ -1735,17 +1763,17 @@
 							
 						<xsl:call-template name="generate-columns_3_10">
 							<xsl:with-param name="count" select="4"/>
-							<xsl:with-param name="expanded-width" select="100"/>
+							<xsl:with-param name="expanded-width" select="50"/>
 							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="140"/>
+							<xsl:with-param name="default-width" select="70"/>
 						</xsl:call-template>
 					
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="3">
 								<ss:Data ss:Type="String">3.10. Оценка рублевой составляющей средств обеспечения:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="65" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Рублевая составляющая средств обеспечения</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Ставка RUONIA</ss:Data></ss:Cell>
@@ -1793,19 +1821,19 @@
 							ss:ExpandedRowCount="{count(/REPORT_DOC/CalculationVariationMargin/CalculationsVariationMargin) + 20}"
 							x:FullColumns="1" x:FullRows="1" ss:DefaultColumnWidth="30" ss:DefaultRowHeight="15">
 					
-						<xsl:call-template name="generate-columns8">
+						<xsl:call-template name="generate-columns5_3">
 							<xsl:with-param name="count" select="6"/>
-							<xsl:with-param name="expanded-width" select="100"/>
-							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="100"/>
+							<xsl:with-param name="expanded-width" select="45"/>
+							<xsl:with-param name="expanded-width2" select="55"/>
+							<xsl:with-param name="default-width" select="55"/>
 						</xsl:call-template>
 					
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="5">
 								<ss:Data ss:Type="String">5.3. Расчет вариационной маржи:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="20" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="40" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Инструмент</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Рыночная цена</ss:Data></ss:Cell>
@@ -1873,12 +1901,13 @@
 					
 						<xsl:call-template name="generate-columns9">
 							<xsl:with-param name="count" select="5"/>
-							<xsl:with-param name="expanded-width" select="100"/>
-							<xsl:with-param name="expanded-width2" select="100"/>
+							<xsl:with-param name="expanded-width" select="55"/>
+							<xsl:with-param name="expanded-width2" select="45"/>
+							<xsl:with-param name="expanded-width3" select="65"/>
 							<xsl:with-param name="default-width" select="400"/>
 						</xsl:call-template>
 					
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="4">
 								<ss:Data ss:Type="String">5.4. Информация о движении денежных средств:</ss:Data>
 							</ss:Cell>
@@ -1963,17 +1992,23 @@
 					
 						<xsl:call-template name="generate-columns_10">
 							<xsl:with-param name="count" select="16"/>
-							<xsl:with-param name="expanded-width" select="60"/>
-							<xsl:with-param name="expanded-width2" select="100"/>
+							<xsl:with-param name="expanded-width" select="45"/>
+							<xsl:with-param name="expanded-width2" select="35"/>
+							<xsl:with-param name="expanded-width3" select="43"/>
+							<xsl:with-param name="expanded-width4" select="57"/>
+							<xsl:with-param name="expanded-width5" select="47"/>
+							<xsl:with-param name="expanded-width6" select="55"/>
+							<xsl:with-param name="expanded-width7" select="63"/>
+							<xsl:with-param name="expanded-width8" select="60"/>
 							<xsl:with-param name="default-width" select="100"/>
 						</xsl:call-template>
 						
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="15">
 								<ss:Data ss:Type="String">5.5. Информация об остатках денежных средств:</ss:Data>
 							</ss:Cell>
 						</ss:Row>
-						<ss:Row ss:Height="60" ss:AutoFitHeight="0">
+						<ss:Row ss:Height="100" ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Дата</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Остаток (Начало отчетного периода)</ss:Data></ss:Cell>
@@ -2129,12 +2164,12 @@
 							
 						<xsl:call-template name="generate-columns_11">
 							<xsl:with-param name="count" select="2"/>
-							<xsl:with-param name="expanded-width" select="500"/>
+							<xsl:with-param name="expanded-width" select="420"/>
 							<xsl:with-param name="expanded-width2" select="100"/>
-							<xsl:with-param name="default-width" select="100"/>
+							<xsl:with-param name="default-width" select="55"/>
 						</xsl:call-template>
 					
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="1">
 								<ss:Data ss:Type="String">6.1. Расшифровка комиссий:</ss:Data>
 							</ss:Cell>
@@ -2194,13 +2229,14 @@
 							
 						<xsl:call-template name="generate-columns_12">
 							<xsl:with-param name="count" select="6"/>
-							<xsl:with-param name="expanded-width" select="100"/>
+							<xsl:with-param name="expanded-width" select="90"/>
 							<xsl:with-param name="expanded-width2" select="90"/>
-							<xsl:with-param name="expanded-width3" select="300"/>
-							<xsl:with-param name="default-width" select="550"/>
+							<xsl:with-param name="expanded-width3" select="275"/>
+							<xsl:with-param name="expanded-width4" select="70"/>
+							<xsl:with-param name="default-width" select="530"/>
 						</xsl:call-template>
 					
-						<ss:Row ss:AutoFitHeight="0" ss:Height="40">
+						<ss:Row ss:AutoFitHeight="0">
 							<ss:Cell ss:StyleID="Title" ss:MergeAcross="5">
 								<ss:Data ss:Type="String">7.1. Расшифровка кодов ценных бумаг и иных финансовых инструментов:</ss:Data>
 							</ss:Cell>
@@ -2282,12 +2318,20 @@
 		<xsl:param name="count"/>
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
+		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="13"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 3 or $total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 7">
+				<xsl:when test="$total-columns - $count + 1 = 3">
 					<ss:Column ss:Width="{$expanded-width}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 6">
+					<ss:Column ss:Width="{$expanded-width2}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 12 or $total-columns - $count + 1 = 13">
+					<ss:Column ss:Width="{$expanded-width3}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2297,6 +2341,8 @@
 				<xsl:with-param name="count" select="$count - 1"/>
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
+				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
@@ -2309,12 +2355,32 @@
 		<xsl:param name="count"/>
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
+		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
+		<xsl:param name="expanded-width4"/>
+		<xsl:param name="expanded-width5"/>
+		<xsl:param name="expanded-width6"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="18"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 8 or $total-columns - $count + 1 = 9 or $total-columns - $count + 1 = 10 or $total-columns - $count + 1 = 13 or $total-columns - $count + 1 = 14 or $total-columns - $count + 1 = 15 or $total-columns - $count + 1 = 16 or $total-columns - $count + 1 = 17 or $total-columns - $count + 1 = 18">
+				<xsl:when test="$total-columns - $count + 1 = 9 or $total-columns - $count + 1 = 11 or $total-columns - $count + 1 = 15">
 					<ss:Column ss:Width="{$expanded-width}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 2 or $total-columns - $count + 1 = 3 or $total-columns - $count + 1 = 8 or $total-columns - $count + 1 = 16 ">
+					<ss:Column ss:Width="{$expanded-width2}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6">
+					<ss:Column ss:Width="{$expanded-width3}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 17 or $total-columns - $count + 1 = 18">
+					<ss:Column ss:Width="{$expanded-width4}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 14">
+					<ss:Column ss:Width="{$expanded-width5}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 10 or $total-columns - $count + 1 = 13">
+					<ss:Column ss:Width="{$expanded-width6}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2324,6 +2390,11 @@
 				<xsl:with-param name="count" select="$count - 1"/>
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
+				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
+				<xsl:with-param name="expanded-width4" select="$expanded-width4"/>
+				<xsl:with-param name="expanded-width5" select="$expanded-width5"/>
+				<xsl:with-param name="expanded-width6" select="$expanded-width6"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
@@ -2337,6 +2408,9 @@
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
+		<xsl:param name="expanded-width4"/>
+		<xsl:param name="expanded-width5"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="14"/>
 		<xsl:if test="$count > 0">
@@ -2347,6 +2421,15 @@
 				<xsl:when test="$total-columns - $count + 1 = 4">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 7">
+					<ss:Column ss:Width="{$expanded-width3}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 9">
+					<ss:Column ss:Width="{$expanded-width4}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 12">
+					<ss:Column ss:Width="{$expanded-width5}"/>
+				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
 				</xsl:otherwise>
@@ -2356,6 +2439,9 @@
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
 				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
+				<xsl:with-param name="expanded-width4" select="$expanded-width4"/>
+				<xsl:with-param name="expanded-width5" select="$expanded-width5"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
@@ -2369,15 +2455,35 @@
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
+		<xsl:param name="expanded-width4"/>
+		<xsl:param name="expanded-width5"/>
+		<xsl:param name="expanded-width6"/>
+		<xsl:param name="expanded-width7"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="17"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 7 or $total-columns - $count + 1 = 8 or $total-columns - $count + 1 = 9 or $total-columns - $count + 1 = 10 or $total-columns - $count + 1 = 12 or $total-columns - $count + 1 = 13 or $total-columns - $count + 1 = 15 or $total-columns - $count + 1 = 16 or $total-columns - $count + 1 = 17">
+				<xsl:when test="$total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 10">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
-				<xsl:when test="$total-columns - $count + 1 = 14">
+				<xsl:when test="$total-columns - $count + 1 = 7">
 					<ss:Column ss:Width="{$expanded-width2}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 5">
+					<ss:Column ss:Width="{$expanded-width3}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 4">
+					<ss:Column ss:Width="{$expanded-width4}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 12 or $total-columns - $count + 1 = 13">
+					<ss:Column ss:Width="{$expanded-width5}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 14">
+					<ss:Column ss:Width="{$expanded-width6}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 16 or $total-columns - $count + 1 = 17">
+					<ss:Column ss:Width="{$expanded-width7}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2388,6 +2494,11 @@
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
 				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
+				<xsl:with-param name="expanded-width4" select="$expanded-width4"/>
+				<xsl:with-param name="expanded-width5" select="$expanded-width5"/>
+				<xsl:with-param name="expanded-width6" select="$expanded-width6"/>
+				<xsl:with-param name="expanded-width7" select="$expanded-width7"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
@@ -2401,15 +2512,23 @@
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
+		<xsl:param name="expanded-width4"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="6"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6">
+				<xsl:when test="$total-columns - $count + 1 = 1">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<xsl:when test="$total-columns - $count + 1 = 2">
 					<ss:Column ss:Width="{$expanded-width2}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 3">
+					<ss:Column ss:Width="{$expanded-width3}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6">
+					<ss:Column ss:Width="{$expanded-width4}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2420,6 +2539,8 @@
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
 				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
+				<xsl:with-param name="expanded-width4" select="$expanded-width4"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
@@ -2433,15 +2554,27 @@
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
+		<xsl:param name="expanded-width4"/>
+		<xsl:param name="expanded-width5"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="13"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 13">
+				<xsl:when test="$total-columns - $count + 1 = 1">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<xsl:when test="$total-columns - $count + 1 = 2">
 					<ss:Column ss:Width="{$expanded-width2}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 12">
+					<ss:Column ss:Width="{$expanded-width3}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 11">
+					<ss:Column ss:Width="{$expanded-width4}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 9">
+					<ss:Column ss:Width="{$expanded-width5}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2452,6 +2585,9 @@
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
 				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
+				<xsl:with-param name="expanded-width4" select="$expanded-width4"/>
+				<xsl:with-param name="expanded-width5" select="$expanded-width5"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
@@ -2469,7 +2605,7 @@
 		<xsl:param name="total-columns" select="7"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 7">
+				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 2 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 7">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<xsl:otherwise>
@@ -2494,12 +2630,19 @@
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="7"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 2">
+				<xsl:when test="$total-columns - $count + 1 = 3 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6">
 					<ss:Column ss:Width="{$expanded-width}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 1">
+					<ss:Column ss:Width="{$expanded-width2}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 2">
+					<ss:Column ss:Width="{$expanded-width3}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2510,6 +2653,7 @@
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
 				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
@@ -2529,6 +2673,9 @@
 			<xsl:choose>
 				<xsl:when test="$total-columns - $count + 1 = 1">
 					<ss:Column ss:Width="{$expanded-width}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 2">
+					<ss:Column ss:Width="{$expanded-width2}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2574,6 +2721,38 @@
 		</xsl:if>
 	</xsl:template>
 	<!--+++++++++++++++++++ КОНЕЦ +++++++++++++++++++++++++++++++++++++-->
+	
+	<!--++++++++++ задаем ширину колонок для 5.3. Расчет вариационной маржи:  +++++++++++++-->
+	<xsl:template name="generate-columns5_3">
+		<xsl:param name="count"/>
+		<xsl:param name="expanded-columns"/>
+		<xsl:param name="expanded-width"/>
+		<xsl:param name="expanded-width2"/>
+		<xsl:param name="default-width"/>
+		<xsl:param name="total-columns" select="6"/>
+		<xsl:if test="$count > 0">
+			<xsl:choose>
+				<xsl:when test="$total-columns - $count + 1 = 1">
+					<ss:Column ss:Width="{$expanded-width}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 2">
+					<ss:Column ss:Width="{$expanded-width2}"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<ss:Column ss:Width="{$default-width}"/>
+				</xsl:otherwise>
+			</xsl:choose>
+			<xsl:call-template name="generate-columns8">
+				<xsl:with-param name="count" select="$count - 1"/>
+				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
+				<xsl:with-param name="expanded-width" select="$expanded-width"/>
+				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="default-width" select="$default-width"/>
+				<xsl:with-param name="total-columns" select="$total-columns"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
+	<!--+++++++++++++++++++ КОНЕЦ +++++++++++++++++++++++++++++++++++++-->
 		
 	<!--++++++++++ задаем ширину колонок для 5.4. Информация о движении денежных средств:  +++++++++++++-->
 	<xsl:template name="generate-columns9">
@@ -2581,12 +2760,19 @@
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="5"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 3 or $total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 5">
+				<xsl:when test="$total-columns - $count + 1 = 1">
 					<ss:Column ss:Width="{$expanded-width}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 3">
+					<ss:Column ss:Width="{$expanded-width2}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 5">
+					<ss:Column ss:Width="{$expanded-width3}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2597,6 +2783,7 @@
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
 				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
@@ -2610,12 +2797,39 @@
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
+		<xsl:param name="expanded-width4"/>
+		<xsl:param name="expanded-width5"/>
+		<xsl:param name="expanded-width6"/>
+		<xsl:param name="expanded-width7"/>
+		<xsl:param name="expanded-width8"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="16"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 2 or $total-columns - $count + 1 = 3 or $total-columns - $count + 1 = 14 or $total-columns - $count + 1 = 15">
+				<xsl:when test="$total-columns - $count + 1 = 1 or $total-columns - $count + 1 = 14">
 					<ss:Column ss:Width="{$expanded-width}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 2">
+					<ss:Column ss:Width="{$expanded-width2}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 3 or $total-columns - $count + 1 = 9 or $total-columns - $count + 1 = 15">
+					<ss:Column ss:Width="{$expanded-width3}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 4 or $total-columns - $count + 1 = 10">
+					<ss:Column ss:Width="{$expanded-width4}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 11">
+					<ss:Column ss:Width="{$expanded-width5}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 6 or $total-columns - $count + 1 = 12">
+					<ss:Column ss:Width="{$expanded-width6}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 7 or $total-columns - $count + 1 = 8 or $total-columns - $count + 1 = 13">
+					<ss:Column ss:Width="{$expanded-width7}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 16">
+					<ss:Column ss:Width="{$expanded-width8}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2626,6 +2840,12 @@
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
 				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
+				<xsl:with-param name="expanded-width4" select="$expanded-width4"/>
+				<xsl:with-param name="expanded-width5" select="$expanded-width5"/>
+				<xsl:with-param name="expanded-width6" select="$expanded-width6"/>
+				<xsl:with-param name="expanded-width7" select="$expanded-width7"/>
+				<xsl:with-param name="expanded-width8" select="$expanded-width8"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
@@ -2669,11 +2889,12 @@
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
 		<xsl:param name="expanded-width3"/>
+		<xsl:param name="expanded-width4"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="6"/>
 		<xsl:if test="$count > 0">
 			<xsl:choose>
-				<xsl:when test="$total-columns - $count + 1 = 3 or $total-columns - $count + 1 = 5 or $total-columns - $count + 1 = 6">
+				<xsl:when test="$total-columns - $count + 1 = 3 or $total-columns - $count + 1 = 5">
 					<ss:Column ss:Width="{$expanded-width}"/>
 				</xsl:when>
 				<xsl:when test="$total-columns - $count + 1 = 1">
@@ -2681,6 +2902,9 @@
 				</xsl:when>
 				<xsl:when test="$total-columns - $count + 1 = 2">
 					<ss:Column ss:Width="{$expanded-width3}"/>
+				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 6">
+					<ss:Column ss:Width="{$expanded-width4}"/>
 				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
@@ -2692,6 +2916,7 @@
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
 				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
 				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
+				<xsl:with-param name="expanded-width4" select="$expanded-width4"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
