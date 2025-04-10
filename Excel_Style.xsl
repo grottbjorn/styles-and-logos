@@ -1397,7 +1397,7 @@
 							<xsl:with-param name="count" select="13"/>
 							<xsl:with-param name="expanded-width" select="90"/>
 							<xsl:with-param name="expanded-width2" select="163"/>
-							<xsl:with-param name="expanded-width3" select="38"/>
+							<xsl:with-param name="expanded-width3" select="45"/>
 							<xsl:with-param name="expanded-width4" select="45"/>
 							<xsl:with-param name="expanded-width5" select="57"/>
 							<xsl:with-param name="default-width" select="60"/>
@@ -1420,7 +1420,7 @@
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Блокировано</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Доступно</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Рыночная цена</ss:Data></ss:Cell>
-							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта платежа</ss:Data></ss:Cell>
+							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Валюта рыночной цены</ss:Data></ss:Cell>
 							<ss:Cell ss:StyleID="Header"><ss:Data ss:Type="String">Плановый исходящий остаток с учетом обязательств, шт.</ss:Data></ss:Cell>
 						</ss:Row>
 						<xsl:variable name="executeSecuritiesPortfolio" select="/REPORT_DOC/StatesSecuritiesPortfolio/StateSecuritiesPortfolio"/>
@@ -1701,6 +1701,7 @@
 							<xsl:with-param name="count" select="6"/>
 							<xsl:with-param name="expanded-width" select="55"/>
 							<xsl:with-param name="expanded-width2" select="35"/>
+							<xsl:with-param name="expanded-width3" select="65"/>
 							<xsl:with-param name="default-width" select="60"/>
 						</xsl:call-template>
 					
@@ -2667,6 +2668,7 @@
 		<xsl:param name="expanded-columns"/>
 		<xsl:param name="expanded-width"/>
 		<xsl:param name="expanded-width2"/>
+		<xsl:param name="expanded-width3"/>
 		<xsl:param name="default-width"/>
 		<xsl:param name="total-columns" select="6"/>
 		<xsl:if test="$count > 0">
@@ -2677,6 +2679,9 @@
 				<xsl:when test="$total-columns - $count + 1 = 2">
 					<ss:Column ss:Width="{$expanded-width2}"/>
 				</xsl:when>
+				<xsl:when test="$total-columns - $count + 1 = 5">
+					<ss:Column ss:Width="{$expanded-width3}"/>
+				</xsl:when>
 				<xsl:otherwise>
 					<ss:Column ss:Width="{$default-width}"/>
 				</xsl:otherwise>
@@ -2686,6 +2691,7 @@
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
 				<xsl:with-param name="expanded-width2" select="$expanded-width2"/>
+				<xsl:with-param name="expanded-width3" select="$expanded-width3"/>
 				<xsl:with-param name="default-width" select="$default-width"/>
 				<xsl:with-param name="total-columns" select="$total-columns"/>
 			</xsl:call-template>
@@ -2742,7 +2748,7 @@
 					<ss:Column ss:Width="{$default-width}"/>
 				</xsl:otherwise>
 			</xsl:choose>
-			<xsl:call-template name="generate-columns8">
+			<xsl:call-template name="generate-columns5_3">
 				<xsl:with-param name="count" select="$count - 1"/>
 				<xsl:with-param name="expanded-columns" select="$expanded-columns"/>
 				<xsl:with-param name="expanded-width" select="$expanded-width"/>
